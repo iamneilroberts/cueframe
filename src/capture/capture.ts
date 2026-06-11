@@ -95,19 +95,29 @@ async function readEmbeddedScenario(page: Page): Promise<Scenario | undefined> {
 
 /**
  * Generic auto-explore fallback (§ capture step 2, tertiary). Best-effort: snapshot the
- * loaded page, then click the first couple of buttons, snapshotting each. The scenario
- * path is primary; this just keeps `capture()` from producing nothing on an unknown app.
+ * loaded page, then click the first couple of buttons/links, snapshotting each. The
+ * scenario path is primary; this just keeps `capture()` from producing nothing on an
+ * unknown app. Exported for tests.
+ *
+ * Selector indexing: each element is addressed as `<probe> >> nth=<k>` where k is the
+ * element's index among the matches of ITS OWN probe selector ("button" or "a[href]"),
+ * never its index in the combined candidate list.
  */
-async function autoExploreScenario(page: Page): Promise<Scenario> {
+export async function autoExploreScenario(page: Page): Promise<Scenario> {
   const steps: Step[] = [{ action: "goto", caption: "App loaded." }];
   try {
     const labels = await page.evaluate(() => {
       const out: { selector: string; label: string }[] = [];
-      const buttons = Array.from(document.querySelectorAll("button, a[href]")).slice(0, 2);
-      buttons.forEach((el, i) => {
+      const candidates = Array.from(document.querySelectorAll("button, a[href]")).slice(0, 2);
+      for (const el of candidates) {
+        const tag = el.tagName.toLowerCase();
+        const probe = tag === "a" ? "a[href]" : tag;
+        const sameProbe = Array.from(document.querySelectorAll(probe));
+        const nth = sameProbe.indexOf(el);
+        if (nth < 0) continue;
         const text = (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 40);
-        out.push({ selector: `${el.tagName.toLowerCase()} >> nth=${i}`, label: text || `element ${i}` });
-      });
+        out.push({ selector: `${probe} >> nth=${nth}`, label: text || `${tag} ${nth}` });
+      }
       return out;
     });
     labels.forEach((l, i) => {
