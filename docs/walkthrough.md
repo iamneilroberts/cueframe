@@ -1,11 +1,11 @@
-# Walkthrough — the golden example
+# Walkthrough: the golden example
 
 The golden example is the end-to-end artifact Cueframe produces from the bundled sample app.
 It lives committed under [`examples/golden/`](../examples/golden/) and is regenerated
-deterministically by `npm run acceptance`. This page walks through what it contains and how
-each act produced it.
+deterministically by `npm run acceptance`. This page covers what it contains and how each act
+produced it.
 
-Regenerate it yourself (from a clean clone):
+Regenerate it yourself from a clean clone:
 
 ```
 npm install && npx playwright install chromium && npm run build && npm run acceptance
@@ -13,7 +13,7 @@ npm install && npx playwright install chromium && npm run build && npm run accep
 
 Then open `examples/golden/demo.html` in a browser to watch the reel.
 
-## Act 1 — Capture
+## Act 1: Capture
 
 `npm run acceptance` serves [`examples/todo-app/`](../examples/todo-app/) and runs the
 Showrunner against it. The sample app ships an embedded capture scenario
@@ -33,15 +33,15 @@ real caption, a searchable `axDigest`, and measured `boxes`:
 
 The resulting `examples/golden/spec.json` passes `cueframe validate` with **zero schema errors
 and zero capture defects**. Each golden frame carries clean, stable box selectors
-(`[data-add]`, `[data-todo]`, `[data-filter="active"]`, …) measured at capture time — these
-are what the next act anchors to.
+(`[data-add]`, `[data-todo]`, `[data-filter="active"]`, and so on) measured at capture time.
+Those selectors are what the next act anchors to.
 
-## Act 2 — Author callouts
+## Act 2: Author callouts
 
 Three callouts are authored from plain-English instructions, through the same `src/callout`
-resolution engine the conversational **cueframe-callouts** skill drives — no manual JSON. Each
-one resolves a frame from a description, auto-anchors to a real box selector, and drafts copy
-in the spec's plain voice (no em-dashes):
+resolution engine the conversational **cueframe-callouts** skill drives. No JSON is edited by
+hand. Each one resolves a frame from a description, auto-anchors to a real box selector, and
+drafts copy in the spec's plain voice (no em-dashes):
 
 | Callout | Frame | Anchor | Title |
 | --- | --- | --- | --- |
@@ -49,23 +49,24 @@ in the spec's plain voice (no em-dashes):
 | `c2` | `f5` (completed) | the todo's toggle checkbox | "Check it off when done" |
 | `c3` | `f6` (filtered) | `[data-filter="active"]` | "Filter to focus" |
 
-For example, `c3` was resolved from *"filtered to show active items"* → frame `f6` (the only
-frame whose caption mentions filtering), with the target phrase *"active filter"* → the
-`[data-filter="active"]` box. The spec re-validates after every add/edit/remove.
+Take `c3`. It was resolved from the phrase *"filtered to show active items"* to frame `f6`,
+the only frame whose caption mentions filtering, and the target phrase *"active filter"* picked
+the `[data-filter="active"]` box. The spec re-validates after every add, edit, and remove.
 
-## Act 3 — Play & Export
+## Act 3: Play and export
 
-The player builds a deterministic timeline (each golden frame holds, then its callouts appear,
-dwell, and leave) and renders frames with callouts anchored to their boxes. Three exports are
-produced from the same spec:
+The player builds a deterministic timeline. Each golden frame holds, then its callouts appear,
+dwell, and leave. It renders frames with callouts anchored to their boxes. Three exports come
+out of the same spec:
 
-- **`demo.html`** — one self-contained file. Every frame screenshot is inlined as a base64
-  data URI and the player runtime is inlined too, so it opens and plays with no server and no
+- **`demo.html`** is one self-contained file. Every frame screenshot is inlined as a base64
+  data URI, and the player runtime is inlined too, so it opens and plays with no server and no
   external requests. Double-click it.
-- **`demo.mp4`** — the player is rendered headless and screenshotted frame-by-frame across the
+- **`demo.mp4`** is the player rendered headless and screenshotted frame by frame across the
   timeline, then encoded with ffmpeg (H.264).
-- **`demo.gif`** — the same frames, encoded as an animated GIF (two-pass palette for quality).
+- **`demo.gif`** is the same frames encoded as an animated GIF, using a two-pass palette for
+  quality.
 
-Each is verified by the acceptance gate (valid MP4 `ftyp` box, `GIF8` header, self-contained
-HTML). That gate is the project's Definition of Done — see
-[GOAL.md §6](../GOAL.md#6-definition-of-done-the-stop-gate).
+Each export is checked by the acceptance gate: a valid MP4 `ftyp` box, a `GIF8` header, and a
+self-contained HTML file with no external references. That gate is the project's Definition of
+Done. See [GOAL.md §6](../GOAL.md#6-definition-of-done-the-stop-gate).

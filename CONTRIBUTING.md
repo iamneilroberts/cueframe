@@ -28,7 +28,7 @@ build, and tests on every push.
 
 | Area | Path | Notes |
 | --- | --- | --- |
-| Spec contract | `src/spec/` | Types + runtime validator. **Change carefully** — everything imports this. |
+| Spec contract | `src/spec/` | Types + runtime validator. **Change carefully**: everything imports this. |
 | Capture (Showrunner) | `src/capture/` | Playwright-driven; `digest.ts` builds the §3.1 `axDigest`/`boxes`. |
 | Callout authoring | `src/callout/` | `resolve.ts` (NL → frame/anchor/copy) + `edit.ts` (immutable edits). |
 | Player | `src/player/` | `timeline.ts` (pure model), `runtime.ts` (self-contained browser JS), `template.ts`. |
@@ -56,5 +56,5 @@ build, and tests on every push.
 ## Conventions
 
 - ESM throughout; relative imports use the `.js` extension (e.g. `../spec/index.js`).
-- `strict` + `noUncheckedIndexedAccess` are on — handle possibly-undefined access.
+- `strict` and `noUncheckedIndexedAccess` are on, so handle possibly-undefined access.
 - Commit messages: short imperative subject, body explaining the *why* for non-obvious changes.
