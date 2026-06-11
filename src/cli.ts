@@ -13,7 +13,7 @@
 import { dirname, resolve, basename } from "node:path";
 import { spawn } from "node:child_process";
 import { readFile } from "node:fs/promises";
-import { capture } from "./capture/index.js";
+import { capture, parseScenario } from "./capture/index.js";
 import type { Scenario } from "./capture/index.js";
 import { exportHtml, exportMp4, exportGif } from "./export/index.js";
 import { servePlayer } from "./server.js";
@@ -72,7 +72,19 @@ async function cmdCapture(p: Parsed): Promise<number> {
   const outDir = dirname(resolve(out));
   let scenario: Scenario | undefined;
   if (typeof p.flags.scenario === "string") {
-    scenario = JSON.parse(await readFile(p.flags.scenario, "utf8")) as Scenario;
+    let raw: string;
+    try {
+      raw = await readFile(p.flags.scenario, "utf8");
+    } catch (err) {
+      console.error(`capture: could not read --scenario ${p.flags.scenario}: ${(err as Error).message}`);
+      return 2;
+    }
+    try {
+      scenario = parseScenario(JSON.parse(raw));
+    } catch (err) {
+      console.error(`capture: invalid scenario file ${p.flags.scenario}: ${(err as Error).message}`);
+      return 2;
+    }
   }
   const result = await capture({
     url,

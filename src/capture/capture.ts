@@ -139,6 +139,12 @@ async function applyStep(page: Page, step: Step, baseUrl: string): Promise<void>
     case "snapshot":
       // no side effect — just a capture marker
       break;
+    default: {
+      // Backstop: parseScenario should have rejected this, but never let an unknown
+      // action silently no-op and then capture a "golden" frame for it.
+      const action = (step as { action?: unknown }).action;
+      throw new Error(`unknown scenario action "${String(action)}"`);
+    }
   }
   // Let the SPA settle (re-render) before measuring.
   await page.waitForTimeout(60);
