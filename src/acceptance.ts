@@ -66,7 +66,7 @@ async function main(): Promise<number> {
     const result = await capture({
       url: server.url,
       outDir: goldenDir,
-      title: "Cueframe — Todo demo",
+      title: "Cueframe todo demo",
       app: "Cueframe sample todo app",
       headless: true,
     });

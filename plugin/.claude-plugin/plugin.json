@@ -1,0 +1,11 @@
+{
+  "name": "cueframe",
+  "version": "0.1.0",
+  "description": "Conversational demo creator: capture a workflow with browser automation, narrate callouts in plain English, and export a shareable reel (HTML/MP4/GIF). Ships the Showrunner (capture) and callout authoring skills.",
+  "author": {
+    "name": "Cueframe contributors"
+  },
+  "homepage": "https://github.com/cueframe/cueframe",
+  "license": "MIT",
+  "keywords": ["demo", "screencast", "callouts", "browser-automation", "playwright"]
+}
