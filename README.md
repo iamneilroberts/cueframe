@@ -1,17 +1,21 @@
 # Cueframe
 
-**Describe the demo, narrate the callouts, export the reel.** Cueframe is a conversational
-demo creator. You point it at a running web app and tell it, in plain English, what workflow
-to record. It drives the app and captures a reel of frames. Then you shape the demo by
-talking: "call out the results around the middle," "make that pause longer," "drop the last
-one." Cueframe resolves the exact frame, the exact anchor, and the copy for you. When the reel
-looks right, it exports as a self-contained web page, an MP4, or a GIF.
+Cueframe records a browser workflow into a JSON demo spec, adds callouts anchored to real
+page elements, and exports the result as a self-contained HTML reel, an MP4, or a GIF.
 
-Cueframe replaces screen recording and editing with describing the demo and narrating the
-callouts. There are no timelines to fight, nothing to re-record over a typo, and no labels to
-hand-place.
+> Status: experimental alpha (v0.1). Works best on apps with stable selectors. Built in one
+> autonomous Claude Code `/goal` run; [GOAL.md](GOAL.md) is the original build brief.
 
-This is the general, open-source version of the engine. Clone it and demo your own app.
+![Cueframe demo: a checkout flow captured from saucedemo.com, with three callouts appearing as the reel plays](examples/saucedemo/demo.gif)
+
+You point it at a running web app and tell it, in plain English, what workflow to record. It
+drives the app and captures a reel of frames. Then you shape the demo by talking: "call out
+the results around the middle," "make that pause longer," "drop the last one." Cueframe
+resolves the exact frame, the anchor, and the copy for you. When the reel looks right, it
+exports.
+
+The point is callouts tied to DOM elements instead of hand-placed video labels, and a demo you
+can re-generate from a description instead of re-recording from scratch.
 
 ---
 
@@ -31,19 +35,23 @@ Cueframe is a pipeline of three acts over one artifact, [`spec.json`](#the-specj
 
 ---
 
-## Install
+## Install (from source)
 
-Cueframe ships two ways from one codebase.
+Cueframe is not published to npm yet, so install it from a clone. It ships two ways from one
+codebase.
 
-### As an `npx` CLI (the engine)
+### As a CLI (the engine)
 
 ```
+git clone https://github.com/iamneilroberts/cueframe
+cd cueframe
 npm install
 npx playwright install chromium
 npm run build
 ```
 
-Then use the verbs:
+After `npm run build`, run the CLI from inside the repo with `npx cueframe <verb>` (npm
+resolves the local package bin). To get a global `cueframe` command, run `npm link`. The verbs:
 
 ```
 npx cueframe capture <url> [--out spec.json] [--scenario steps.json] [--viewport 1280x800]
@@ -138,11 +146,12 @@ everywhere.
 }
 ```
 
-**Capture quality is a hard contract, not best-effort.** `caption`, `axDigest`, and `boxes`
-are the fields semantic frame resolution and auto-anchoring stand on. Every *golden* frame
-must have a real caption, a non-empty axDigest, and at least one real box (a selector and a
-pixel rect). `cueframe validate` reports violations as **capture defects**, kept separate from
-schema errors, so a thin capture fails loudly instead of quietly degrading the callout step.
+Callout resolution depends on three fields per frame: `caption`, `axDigest`, and `boxes`.
+`cueframe validate` checks that every *golden* frame has a non-empty caption, a non-empty
+axDigest, and at least one real box (a selector and a pixel rect), and reports any that don't
+as **capture defects**, kept separate from schema errors. The point is to fail loudly on a
+thin capture rather than silently degrade the callout step, which has nothing to resolve
+against without these fields.
 
 ### Voice is configurable
 
@@ -182,6 +191,47 @@ plugin/        Claude Code plugin: capture + callout skills, slash commands
 
 Run `npm test` (unit and browser tests), `npm run typecheck`, and `npm run acceptance` (the
 end-to-end gate). See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+---
+
+## Examples
+
+Two worked examples ship in [`examples/`](examples/), each capture-to-export end to end:
+
+- **`examples/golden/`** is the bundled todo app. It is deterministic and runs in CI
+  (`npm run acceptance`).
+- **`examples/saucedemo/`** captures a live checkout flow on saucedemo.com, with callouts
+  auto-anchored to the site's own `#id` and `data-test` elements (`npm run example:saucedemo`).
+
+See [`examples/README.md`](examples/README.md) for a table and a "use it on your own app"
+scenario.
+
+## Limitations
+
+- Capture needs Chromium via Playwright. MP4 and GIF export need `ffmpeg` on your `PATH`.
+- It works best on apps with stable selectors (`#id`, `[data-*]`, ARIA roles). Brittle markup
+  produces weaker anchors.
+- You describe the workflow; Cueframe does not discover a meaningful demo on its own. A bare
+  URL with no scenario falls back to a thin auto-explore.
+- Nondeterministic UIs (randomized or AI-generated content) capture, but the spec will not
+  reproduce identically run to run.
+- It is not a general video editor. One workflow per spec; no branching or live re-capture.
+
+## Security and privacy
+
+Captured screenshots are real pixels from the app you point it at, so they can contain
+whatever was on screen, including sensitive data. The HTML export inlines those frames as
+base64, so the file carries the images with it. Review a spec and its exports before sharing
+them, the same way you would review a screen recording.
+
+## Roadmap
+
+Near-term, no grand claims:
+
+- Publish to npm so `npx cueframe` works without a clone.
+- A second bundled (non-third-party) example beyond the todo app.
+- `spotlight` and `arrow` callout styles polished to match `card`.
+- Optional per-element selector hints in a scenario, for apps without stable attributes.
 
 ## License
 

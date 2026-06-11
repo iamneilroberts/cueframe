@@ -4,6 +4,24 @@
   "description": "Conversational demo creator: capture a workflow, narrate callouts in plain English, export a shareable reel (HTML/MP4/GIF).",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamneilroberts/cueframe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamneilroberts/cueframe/issues"
+  },
+  "homepage": "https://github.com/iamneilroberts/cueframe#readme",
+  "keywords": [
+    "demo",
+    "screencast",
+    "callouts",
+    "browser-automation",
+    "playwright",
+    "reel",
+    "gif",
+    "mp4"
+  ],
   "bin": {
     "cueframe": "dist/cli.js"
   },
