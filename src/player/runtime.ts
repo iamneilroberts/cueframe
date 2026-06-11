@@ -57,6 +57,7 @@ export const RUNTIME_JS = String.raw`(function () {
     + ".cf-callout-layer{position:absolute;inset:0;pointer-events:none;}"
     + ".cf-dim{position:absolute;inset:0;background:rgba(8,10,14,.55);transition:opacity .2s;}"
     + ".cf-ring{position:absolute;border:3px solid #5b9dff;border-radius:8px;box-shadow:0 0 0 3px rgba(91,157,255,.35),0 0 24px rgba(91,157,255,.5);}"
+    + ".cf-anchor{position:absolute;border:2px solid #5b9dff;border-radius:6px;box-shadow:0 0 0 2px rgba(91,157,255,.25),0 0 12px rgba(91,157,255,.35);pointer-events:none;}"
     + ".cf-card{position:absolute;max-width:300px;min-width:160px;background:rgba(17,20,26,.96);color:#f4f6fb;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.5);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}"
     + ".cf-eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8fb4ff;margin:0 0 4px;font-weight:600;}"
     + ".cf-title{font-size:15px;font-weight:650;margin:0 0 4px;}"
@@ -123,6 +124,13 @@ export const RUNTIME_JS = String.raw`(function () {
   }
 
   // --- callout element builders ---
+  // Area of overlap between two {x,y,w,h} rects (0 when disjoint).
+  function intersectArea(a, b) {
+    var ox = Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x));
+    var oy = Math.max(0, Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y));
+    return ox * oy;
+  }
+
   function clampCardPos(left, top, cardW, cardH) {
     if (left + cardW > stageW) left = stageW - cardW - 8;
     if (left < 8) left = 8;
@@ -156,8 +164,16 @@ export const RUNTIME_JS = String.raw`(function () {
         ring.style.height = (sRect.h + pad * 2) + "px";
         layer.appendChild(ring);
       }
-    } else if (style === "arrow" && sRect) {
-      // arrow drawn from card toward the rect; handled after card placement below
+    } else if (sRect) {
+      // card / arrow styles: mark the anchored element so the viewer can see what the
+      // callout points at (spotlight already draws its own ring + dim).
+      var anchorEl = el("div", "cf-anchor");
+      var apad = 4;
+      anchorEl.style.left = (sRect.x - apad) + "px";
+      anchorEl.style.top = (sRect.y - apad) + "px";
+      anchorEl.style.width = (sRect.w + apad * 2) + "px";
+      anchorEl.style.height = (sRect.h + apad * 2) + "px";
+      layer.appendChild(anchorEl);
     }
 
     // card placement: beside the rect if present, else parked centre
@@ -173,12 +189,25 @@ export const RUNTIME_JS = String.raw`(function () {
     if (sRect) {
       targetCx = sRect.x + sRect.w / 2;
       targetCy = sRect.y + sRect.h / 2;
-      // prefer placing card to the right of the rect, else left, else below
-      var left = sRect.x + sRect.w + 16;
-      var top = sRect.y;
-      if (left + cardW > stageW) left = sRect.x - cardW - 16;
-      if (left < 8) { left = sRect.x; top = sRect.y + sRect.h + 16; }
-      pos = clampCardPos(left, top, cardW, cardH);
+      // Candidate positions around the anchor: right, left, below, above. Take the
+      // first that, AFTER clamping into the stage, does not cover the padded anchor;
+      // if every candidate covers it (tiny stages), take the least-covering one.
+      var m = 16, zpad = 6;
+      var avoid = { x: sRect.x - zpad, y: sRect.y - zpad, w: sRect.w + zpad * 2, h: sRect.h + zpad * 2 };
+      var candidates = [
+        { left: sRect.x + sRect.w + m, top: sRect.y },
+        { left: sRect.x - cardW - m, top: sRect.y },
+        { left: sRect.x, top: sRect.y + sRect.h + m },
+        { left: sRect.x, top: sRect.y - cardH - m }
+      ];
+      var best = null, bestOverlap = Infinity;
+      for (var ci = 0; ci < candidates.length; ci++) {
+        var c = clampCardPos(candidates[ci].left, candidates[ci].top, cardW, cardH);
+        var overlap = intersectArea({ x: c.left, y: c.top, w: cardW, h: cardH }, avoid);
+        if (overlap < bestOverlap) { bestOverlap = overlap; best = c; }
+        if (overlap === 0) break;
+      }
+      pos = best;
     } else {
       pos = clampCardPos((stageW - cardW) / 2, (stageH - cardH) / 2, cardW, cardH);
     }
