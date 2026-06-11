@@ -97,3 +97,31 @@ describe("collectBoxes", () => {
     expect(boxes.length).toBeLessThanOrEqual(3);
   });
 });
+
+describe("collectBoxes — clean selector derivation (automation-friendly apps)", () => {
+  const APP = `<!doctype html><html><head><title>Shop</title></head><body>
+    <header id="primary-header"><a data-test="cart-link" href="#">Cart</a>
+      <span data-test="cart-badge">1</span></header>
+    <button data-test="add-to-cart-backpack">Add to cart</button>
+    <input data-testid="search" aria-label="Search" />
+    <button data-qa="checkout">Checkout</button>
+  </body></html>`;
+
+  it("derives clean per-element selectors from id / data-test / data-testid / data-qa", async () => {
+    const p = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+    await p.setContent(APP, { waitUntil: "load" });
+    const boxes = await collectBoxes(p);
+    const selectors = boxes.map((b) => b.selector);
+    // Every selector resolves to exactly one element (clean + unambiguous).
+    for (const s of selectors) expect(await p.locator(s).count()).toBe(1);
+    // The meaningful elements get human-readable attribute selectors, not `tag >> nth=N`.
+    expect(selectors).toContain("#primary-header");
+    expect(selectors).toContain('[data-test="cart-link"]');
+    expect(selectors).toContain('[data-test="cart-badge"]');
+    expect(selectors).toContain('[data-test="add-to-cart-backpack"]');
+    expect(selectors).toContain('[data-testid="search"]');
+    expect(selectors).toContain('[data-qa="checkout"]');
+    expect(selectors.some((s) => s.includes(">> nth="))).toBe(false);
+    await p.close();
+  });
+});

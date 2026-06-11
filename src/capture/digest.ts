@@ -143,7 +143,12 @@ const GENERIC_SELECTORS = [
   "[data-text]",
   "[data-toggle]",
   "[data-delete]",
+  // Generic stable handles for any automation-friendly app (each element's own clean
+  // selector is derived per-element below; these just ensure the elements get probed).
   "[id]",
+  "[data-test]",
+  "[data-testid]",
+  "[data-qa]",
   // Generic interactive fallbacks last.
   "textarea",
   "input",
@@ -208,28 +213,60 @@ export async function collectBoxes(
       if (seenRects.has(dedupeKey)) continue;
       seenRects.add(dedupeKey);
 
-      // A selector that uniquely & stably resolves to THIS element. Prefer an nth-scoped
-      // form when the base selector matches several elements, so the player can rebind.
-      const resolvable = handles.length > 1 ? `${selector} >> nth=${i}` : selector;
-
-      // Accessible label: aria-label, visible text, value, or placeholder.
+      // Derive the cleanest stable selector for THIS element + its accessible label.
+      // Prefer a unique selector built from the element's own attributes (id, then
+      // data-test / data-testid / data-qa) — so automation-friendly apps get clean
+      // human-meaningful anchors like `[data-test="checkout"]` instead of `button >> nth=3`.
+      // Fall back to the probe selector (nth-scoped when it matches several elements).
       let label = "";
+      let derived = "";
       try {
-        label = await handle.evaluate((el) => {
+        const r = await handle.evaluate((el) => {
           const node = el as HTMLElement;
+
+          let label = "";
           const aria = node.getAttribute("aria-label");
-          if (aria && aria.trim()) return aria.trim();
-          const text = (node.textContent || "").replace(/\s+/g, " ").trim();
-          if (text) return text.slice(0, 80);
-          if (node instanceof HTMLInputElement) {
-            if (node.value && node.value.trim()) return node.value.trim();
-            if (node.placeholder && node.placeholder.trim()) return node.placeholder.trim();
+          if (aria && aria.trim()) label = aria.trim();
+          if (!label) {
+            const text = (node.textContent || "").replace(/\s+/g, " ").trim();
+            if (text) label = text.slice(0, 80);
           }
-          return "";
+          if (!label && node instanceof HTMLInputElement) {
+            if (node.value && node.value.trim()) label = node.value.trim();
+            else if (node.placeholder && node.placeholder.trim()) label = node.placeholder.trim();
+          }
+
+          const uniq = (sel: string): string => {
+            try {
+              return document.querySelectorAll(sel).length === 1 ? sel : "";
+            } catch {
+              return "";
+            }
+          };
+          let derived = "";
+          const id = node.getAttribute("id");
+          if (id) derived = uniq(`#${CSS.escape(id)}`);
+          if (!derived) {
+            for (const attr of ["data-test", "data-testid", "data-qa"]) {
+              const v = node.getAttribute(attr);
+              if (v) {
+                const u = uniq(`[${attr}="${v.replace(/"/g, '\\"')}"]`);
+                if (u) {
+                  derived = u;
+                  break;
+                }
+              }
+            }
+          }
+          return { label, derived };
         });
+        label = r.label;
+        derived = r.derived;
       } catch {
-        label = "";
+        /* leave label / derived empty */
       }
+
+      const resolvable = derived || (handles.length > 1 ? `${selector} >> nth=${i}` : selector);
 
       const box: Box = { selector: resolvable, rect };
       if (label) box.label = label;
