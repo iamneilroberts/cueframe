@@ -8,3 +8,6 @@ coverage/
 # Capture/export scratch output (the committed golden example lives under examples/)
 /tmp-capture/
 /.cueframe-tmp/
+
+# Claude Code session scratch
+.claude-sessions/
