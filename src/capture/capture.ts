@@ -20,7 +20,7 @@ import {
   type FrameRecord,
 } from "../spec/index.js";
 import {
-  asScenario,
+  parseScenario,
   isGoldenStep,
   stepActionLabel,
   stepCaption,
@@ -59,10 +59,15 @@ async function readEmbeddedScenario(page: Page): Promise<Scenario | undefined> {
     const fromWindow = await page.evaluate(() => {
       return (window as unknown as { __CUEFRAME_SCENARIO__?: unknown }).__CUEFRAME_SCENARIO__ ?? null;
     });
-    const s = asScenario(fromWindow);
-    if (s) return s;
+    if (fromWindow !== null) {
+      try {
+        return parseScenario(fromWindow);
+      } catch (err) {
+        console.warn(`capture: ignoring embedded scenario: ${(err as Error).message}`);
+      }
+    }
   } catch {
-    /* ignore */
+    /* ignore evaluate errors */
   }
   // 2. <script id="cueframe-scenario" type="application/json">
   try {
@@ -75,10 +80,15 @@ async function readEmbeddedScenario(page: Page): Promise<Scenario | undefined> {
         return null;
       }
     });
-    const s = asScenario(fromScript);
-    if (s) return s;
+    if (fromScript !== null) {
+      try {
+        return parseScenario(fromScript);
+      } catch (err) {
+        console.warn(`capture: ignoring embedded scenario: ${(err as Error).message}`);
+      }
+    }
   } catch {
-    /* ignore */
+    /* ignore evaluate errors */
   }
   return undefined;
 }

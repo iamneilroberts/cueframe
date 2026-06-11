@@ -90,6 +90,7 @@ function checkStep(raw: unknown, i: number): string | null {
       if (s.selector !== undefined && typeof s.selector !== "string") return at('press "selector" must be a string');
       break;
     case "waitFor":
+      if (s.caption !== undefined) return at('waitFor cannot have a "caption" (it never produces a frame; use "snapshot")');
       if (s.selector !== undefined && typeof s.selector !== "string") return at('waitFor "selector" must be a string');
       if (s.ms !== undefined && typeof s.ms !== "number") return at('waitFor "ms" must be a number');
       break;

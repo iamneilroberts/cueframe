@@ -42,6 +42,23 @@ describe("parseScenario", () => {
     expect(() => parseScenario(null)).toThrowError(/scenario/);
     expect(() => parseScenario({ steps: [] })).toThrowError(/steps/);
   });
+
+  it("aggregates every malformed step into one error", () => {
+    let message = "";
+    try {
+      parseScenario({ steps: [{ action: "click" }, { action: "clik" }] });
+    } catch (err) {
+      message = (err as Error).message;
+    }
+    expect(message).toMatch(/steps\[0\].*selector/);
+    expect(message).toMatch(/steps\[1\].*unknown action "clik"/);
+  });
+
+  it("rejects waitFor with a caption (it never produces a frame)", () => {
+    expect(() => parseScenario({ steps: [{ action: "waitFor", selector: "#x", caption: "Loaded." }] })).toThrowError(
+      /steps\[0\].*waitFor cannot have a "caption"/,
+    );
+  });
 });
 
 describe("asScenario (lenient form used for embedded scenarios)", () => {
