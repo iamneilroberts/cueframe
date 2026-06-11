@@ -11,3 +11,6 @@ coverage/
 
 # Claude Code session scratch
 .claude-sessions/
+
+# Session handoff scratch
+docs/summaries/
