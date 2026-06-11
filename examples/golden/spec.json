@@ -1,0 +1,979 @@
+{
+  "meta": {
+    "title": "Cueframe — Todo demo",
+    "app": "Cueframe sample todo app",
+    "createdAt": "2026-06-11T00:54:58.423Z",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "frames": [
+    {
+      "id": "f1",
+      "n": 1,
+      "kind": "golden",
+      "img": "frames/f1.png",
+      "caption": "The todo app opens to an empty list.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; listitem \"Nothing here yet. Add your first todo.\"; 0 items left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 351,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 626,
+            "y": 350,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 556,
+            "y": 350,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 508,
+            "y": 350,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 355,
+            "w": 70,
+            "h": 21
+          },
+          "label": "0 items left"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "n": 2,
+      "kind": "golden",
+      "img": "frames/f2.png",
+      "caption": "Typing the first todo into the input.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; listitem \"Nothing here yet. Add your first todo.\"; 0 items left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 351,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 626,
+            "y": 350,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 556,
+            "y": 350,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 508,
+            "y": 350,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 355,
+            "w": 70,
+            "h": 21
+          },
+          "label": "0 items left"
+        }
+      ],
+      "action": {
+        "label": "New todo field",
+        "selector": "[data-new-todo]"
+      }
+    },
+    {
+      "id": "f3",
+      "n": 3,
+      "kind": "golden",
+      "img": "frames/f3.png",
+      "caption": "First todo added to the list.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"Delete \"Buy groceries\"\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; checkbox \"Mark \"Buy groceries\" complete\"; listitem \"Buy groceries×\"; 1 todo; 1 item left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 351,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 622,
+            "y": 350,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 552,
+            "y": 350,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 505,
+            "y": 350,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-delete]",
+          "rect": {
+            "x": 845,
+            "y": 267,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Buy groceries\""
+        },
+        {
+          "selector": "[data-toggle]",
+          "rect": {
+            "x": 412,
+            "y": 270,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Buy groceries\" complete"
+        },
+        {
+          "selector": "[data-todo]",
+          "rect": {
+            "x": 392,
+            "y": 253,
+            "w": 496,
+            "h": 54
+          },
+          "label": "Buy groceries×"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-text]",
+          "rect": {
+            "x": 447,
+            "y": 268,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Buy groceries"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 355,
+            "w": 63,
+            "h": 21
+          },
+          "label": "1 item left"
+        }
+      ],
+      "action": {
+        "label": "Add button",
+        "selector": "[data-add]"
+      }
+    },
+    {
+      "id": "f4",
+      "n": 4,
+      "kind": "golden",
+      "img": "frames/f4.png",
+      "caption": "Second todo added, two items left.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"Delete \"Buy groceries\"\"; button \"Delete \"Walk the dog\"\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; checkbox \"Mark \"Buy groceries\" complete\"; checkbox \"Mark \"Walk the dog\" complete\"; listitem \"Buy groceries×\"; listitem \"Walk the dog×\"; 2 todos; 2 items left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 380,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 626,
+            "y": 379,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 556,
+            "y": 379,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 508,
+            "y": 379,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-delete] >> nth=0",
+          "rect": {
+            "x": 845,
+            "y": 267,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Buy groceries\""
+        },
+        {
+          "selector": "[data-delete] >> nth=1",
+          "rect": {
+            "x": 845,
+            "y": 322,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Walk the dog\""
+        },
+        {
+          "selector": "[data-toggle] >> nth=0",
+          "rect": {
+            "x": 412,
+            "y": 270,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Buy groceries\" complete"
+        },
+        {
+          "selector": "[data-toggle] >> nth=1",
+          "rect": {
+            "x": 412,
+            "y": 325,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Walk the dog\" complete"
+        },
+        {
+          "selector": "[data-todo] >> nth=1",
+          "rect": {
+            "x": 392,
+            "y": 307,
+            "w": 496,
+            "h": 55
+          },
+          "label": "Walk the dog×"
+        },
+        {
+          "selector": "[data-todo] >> nth=0",
+          "rect": {
+            "x": 392,
+            "y": 253,
+            "w": 496,
+            "h": 54
+          },
+          "label": "Buy groceries×"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-text] >> nth=0",
+          "rect": {
+            "x": 447,
+            "y": 268,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Buy groceries"
+        },
+        {
+          "selector": "[data-text] >> nth=1",
+          "rect": {
+            "x": 447,
+            "y": 323,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Walk the dog"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 384,
+            "w": 70,
+            "h": 21
+          },
+          "label": "2 items left"
+        }
+      ],
+      "action": {
+        "label": "Add button",
+        "selector": "[data-add]"
+      }
+    },
+    {
+      "id": "f5",
+      "n": 5,
+      "kind": "golden",
+      "img": "frames/f5.png",
+      "caption": "First todo marked complete.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"Delete \"Buy groceries\"\"; button \"Delete \"Walk the dog\"\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; checkbox \"Mark \"Buy groceries\" complete\"; checkbox \"Mark \"Walk the dog\" complete\"; listitem \"Buy groceries×\"; listitem \"Walk the dog×\"; 2 todos; 1 completed; 1 item left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 380,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 622,
+            "y": 379,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 552,
+            "y": 379,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 505,
+            "y": 379,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-delete] >> nth=0",
+          "rect": {
+            "x": 845,
+            "y": 267,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Buy groceries\""
+        },
+        {
+          "selector": "[data-delete] >> nth=1",
+          "rect": {
+            "x": 845,
+            "y": 322,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Walk the dog\""
+        },
+        {
+          "selector": "[data-todo] [data-toggle] >> nth=0",
+          "rect": {
+            "x": 412,
+            "y": 270,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Buy groceries\" complete"
+        },
+        {
+          "selector": "[data-todo] [data-toggle] >> nth=1",
+          "rect": {
+            "x": 412,
+            "y": 325,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Walk the dog\" complete"
+        },
+        {
+          "selector": "[data-todo] >> nth=1",
+          "rect": {
+            "x": 392,
+            "y": 307,
+            "w": 496,
+            "h": 55
+          },
+          "label": "Walk the dog×"
+        },
+        {
+          "selector": "[data-todo] >> nth=0",
+          "rect": {
+            "x": 392,
+            "y": 253,
+            "w": 496,
+            "h": 54
+          },
+          "label": "Buy groceries×"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-text] >> nth=0",
+          "rect": {
+            "x": 447,
+            "y": 268,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Buy groceries"
+        },
+        {
+          "selector": "[data-text] >> nth=1",
+          "rect": {
+            "x": 447,
+            "y": 323,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Walk the dog"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 384,
+            "w": 63,
+            "h": 21
+          },
+          "label": "1 item left"
+        }
+      ],
+      "action": {
+        "label": "Toggle complete",
+        "selector": "[data-todo] [data-toggle]"
+      }
+    },
+    {
+      "id": "f6",
+      "n": 6,
+      "kind": "golden",
+      "img": "frames/f6.png",
+      "caption": "Filtered to active todos only.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"Delete \"Walk the dog\"\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; checkbox \"Mark \"Walk the dog\" complete\"; listitem \"Walk the dog×\"; 1 todo; 1 item left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 351,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 622,
+            "y": 350,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=\"active\"]",
+          "rect": {
+            "x": 552,
+            "y": 350,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 505,
+            "y": 350,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-delete]",
+          "rect": {
+            "x": 845,
+            "y": 267,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Walk the dog\""
+        },
+        {
+          "selector": "[data-toggle]",
+          "rect": {
+            "x": 412,
+            "y": 270,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Walk the dog\" complete"
+        },
+        {
+          "selector": "[data-todo]",
+          "rect": {
+            "x": 392,
+            "y": 253,
+            "w": 496,
+            "h": 54
+          },
+          "label": "Walk the dog×"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-text]",
+          "rect": {
+            "x": 447,
+            "y": 268,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Walk the dog"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 355,
+            "w": 63,
+            "h": 21
+          },
+          "label": "1 item left"
+        }
+      ],
+      "action": {
+        "label": "Active filter",
+        "selector": "[data-filter=\"active\"]"
+      }
+    },
+    {
+      "id": "f7",
+      "n": 7,
+      "kind": "golden",
+      "img": "frames/f7.png",
+      "caption": "Cleared completed todos, one item remains.",
+      "axDigest": "heading \"Today\"; button \"Add\"; button \"Delete \"Walk the dog\"\"; button \"All\"; button \"Active\"; button \"Completed\"; button \"Clear completed\"; textbox \"New todo\"; checkbox \"Mark \"Walk the dog\" complete\"; listitem \"Walk the dog×\"; 1 todo; 1 item left",
+      "boxes": [
+        {
+          "selector": "[data-new-todo]",
+          "rect": {
+            "x": 408,
+            "y": 189,
+            "w": 385,
+            "h": 44
+          },
+          "label": "New todo"
+        },
+        {
+          "selector": "[data-clear-completed]",
+          "rect": {
+            "x": 750,
+            "y": 351,
+            "w": 122,
+            "h": 28
+          },
+          "label": "Clear completed"
+        },
+        {
+          "selector": "[data-add]",
+          "rect": {
+            "x": 803,
+            "y": 189,
+            "w": 69,
+            "h": 44
+          },
+          "label": "Add"
+        },
+        {
+          "selector": "[data-filter=completed]",
+          "rect": {
+            "x": 622,
+            "y": 350,
+            "w": 94,
+            "h": 30
+          },
+          "label": "Completed"
+        },
+        {
+          "selector": "[data-filter=active]",
+          "rect": {
+            "x": 552,
+            "y": 350,
+            "w": 64,
+            "h": 30
+          },
+          "label": "Active"
+        },
+        {
+          "selector": "[data-filter=all]",
+          "rect": {
+            "x": 505,
+            "y": 350,
+            "w": 42,
+            "h": 30
+          },
+          "label": "All"
+        },
+        {
+          "selector": "[data-delete]",
+          "rect": {
+            "x": 845,
+            "y": 267,
+            "w": 27,
+            "h": 26
+          },
+          "label": "Delete \"Walk the dog\""
+        },
+        {
+          "selector": "[data-toggle]",
+          "rect": {
+            "x": 412,
+            "y": 270,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Mark \"Walk the dog\" complete"
+        },
+        {
+          "selector": "[data-todo]",
+          "rect": {
+            "x": 392,
+            "y": 253,
+            "w": 496,
+            "h": 54
+          },
+          "label": "Walk the dog×"
+        },
+        {
+          "selector": "[data-heading]",
+          "rect": {
+            "x": 408,
+            "y": 84,
+            "w": 464,
+            "h": 39
+          },
+          "label": "Today"
+        },
+        {
+          "selector": "[data-text]",
+          "rect": {
+            "x": 447,
+            "y": 268,
+            "w": 386,
+            "h": 24
+          },
+          "label": "Walk the dog"
+        },
+        {
+          "selector": "[data-count]",
+          "rect": {
+            "x": 408,
+            "y": 355,
+            "w": 63,
+            "h": 21
+          },
+          "label": "1 item left"
+        }
+      ],
+      "action": {
+        "label": "Clear completed",
+        "selector": "[data-clear-completed]"
+      }
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "frame": "f2",
+      "title": "Add a task fast",
+      "anchor": {
+        "selector": "[data-add]"
+      },
+      "body": "Typing the first todo into the input.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c2",
+      "frame": "f5",
+      "title": "Check it off when done",
+      "anchor": {
+        "selector": "[data-todo] [data-toggle] >> nth=0"
+      },
+      "body": "First todo marked complete.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c3",
+      "frame": "f6",
+      "title": "Filter to focus",
+      "anchor": {
+        "selector": "[data-filter=\"active\"]"
+      },
+      "body": "Filtered to active todos only.",
+      "dwellMs": 3000
+    }
+  ]
+}

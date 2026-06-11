@@ -62,34 +62,79 @@ export function tokenize(text: string): string[] {
     .filter((t) => t.length > 0 && !STOPWORDS.has(t));
 }
 
-/** A frame's searchable haystack: caption + axDigest + box labels/selectors + action label. */
-function frameHaystack(frame: FrameRecord): string {
-  const parts: string[] = [frame.caption, frame.axDigest];
-  for (const b of frame.boxes) {
-    if (b.label) parts.push(b.label);
-    parts.push(b.selector);
-  }
-  if (frame.action?.label) parts.push(frame.action.label);
-  return parts.join(" ");
+/**
+ * Semantic scoring is field-aware and idf-weighted so DISTINCTIVE words win.
+ *
+ * Two earlier failure modes this fixes:
+ *  - "active"/"items" appear in EVERY frame's axDigest (the filter buttons + counter), so a
+ *    raw token-overlap count let them drown out "filtered", which appears in exactly one
+ *    caption. Inverse-frame-frequency (idf) gives a token that occurs in one frame far more
+ *    weight than one that occurs in all of them.
+ *  - A match in the curated `caption` is a much stronger signal of "what this frame is about"
+ *    than an incidental match in the axDigest/box text, so caption matches are boosted.
+ */
+const CAPTION_WEIGHT = 2.2;
+const AUX_WEIGHT = 1.0;
+const PARTIAL_FACTOR = 0.5;
+
+interface FrameTokens {
+  caption: Set<string>; // caption + action label — the curated "what happened"
+  all: Set<string>; // caption ∪ axDigest ∪ box labels/selectors
 }
 
-/**
- * Score a query's overlap against a frame. Counts how many DISTINCT query tokens appear
- * in the frame's haystack token set. A query token also matches as a substring of a
- * haystack token (so "price" matches "pricing", "aggregate" matches "aggregated").
- */
-function overlapScore(queryTokens: string[], frame: FrameRecord): number {
-  const haystackTokens = new Set(tokenize(frameHaystack(frame)));
-  const haystackList = [...haystackTokens];
-  let score = 0;
-  for (const qt of queryTokens) {
-    if (haystackTokens.has(qt)) {
-      score += 1;
-    } else if (haystackList.some((ht) => ht.includes(qt) || qt.includes(ht))) {
-      // Partial / stem match is worth a little less than an exact token hit.
-      score += 0.5;
+interface Corpus {
+  fields: FrameTokens[];
+  df: Map<string, number>; // document frequency: how many frames contain a token
+  n: number;
+}
+
+function frameFields(frame: FrameRecord): FrameTokens {
+  const caption = new Set(tokenize(`${frame.caption} ${frame.action?.label ?? ""}`));
+  const auxParts: string[] = [frame.axDigest];
+  for (const b of frame.boxes) {
+    if (b.label) auxParts.push(b.label);
+    auxParts.push(b.selector);
+  }
+  const all = new Set([...caption, ...tokenize(auxParts.join(" "))]);
+  return { caption, all };
+}
+
+function buildCorpus(golden: FrameRecord[]): Corpus {
+  const fields = golden.map(frameFields);
+  const df = new Map<string, number>();
+  for (const f of fields) for (const t of f.all) df.set(t, (df.get(t) ?? 0) + 1);
+  return { fields, df, n: golden.length };
+}
+
+/** Inverse frame frequency: ~0 for a token in every frame, large for a rare one. */
+function idf(corpus: Corpus, token: string): number {
+  const d = corpus.df.get(token) ?? 0;
+  if (d === 0) return 0;
+  return Math.log((corpus.n + 1) / d);
+}
+
+/** Best idf contribution of one query token against one frame (exact, else substring). */
+function tokenContribution(corpus: Corpus, qt: string, fields: FrameTokens): number {
+  if (fields.all.has(qt)) {
+    const w = fields.caption.has(qt) ? CAPTION_WEIGHT : AUX_WEIGHT;
+    return idf(corpus, qt) * w;
+  }
+  // Substring / stem match (so "price" matches "pricing", "filter" matches "filtered").
+  let best = 0;
+  for (const ht of fields.all) {
+    if (ht.includes(qt) || qt.includes(ht)) {
+      const w = fields.caption.has(ht) ? CAPTION_WEIGHT : AUX_WEIGHT;
+      const v = idf(corpus, ht) * w * PARTIAL_FACTOR;
+      if (v > best) best = v;
     }
   }
+  return best;
+}
+
+function semanticScore(corpus: Corpus, queryTokens: string[], frameIdx: number): number {
+  const fields = corpus.fields[frameIdx]!;
+  let score = 0;
+  for (const qt of queryTokens) score += tokenContribution(corpus, qt, fields);
   return score;
 }
 
@@ -165,8 +210,8 @@ function nearestByN(golden: FrameRecord[], target: number): FrameRecord | undefi
 // resolveFrame
 // ---------------------------------------------------------------------------
 
-/** Margin (in score units) within which the top 2 semantic hits count as ambiguous. */
-const AMBIGUITY_MARGIN = 0.75;
+/** The runner-up counts as ambiguous when it scores at least this fraction of the top. */
+const AMBIGUITY_RATIO = 0.8;
 
 /**
  * Resolve a natural-language frame reference to a GOLDEN frame.
@@ -223,22 +268,27 @@ export function resolveFrame(spec: Spec, ref: string): FrameResolution {
   const queryTokens = tokenize(trimmed);
   if (queryTokens.length === 0) return { kind: "none" };
 
-  // Detect "first time X appears" intent → earliest match tie-break (golden is already
-  // sorted by n ascending, so a stable sort by descending score keeps earliest on ties).
+  // idf-weighted, caption-boosted scoring (see semanticScore). golden is sorted by n
+  // ascending, so a stable sort by descending score keeps the earliest frame on ties —
+  // which gives "first time X appears" for free.
+  const corpus = buildCorpus(golden);
   const scored = golden
-    .map((frame, idx) => ({ frame, idx, score: overlapScore(queryTokens, frame) }))
+    .map((frame, idx) => ({ frame, idx, score: semanticScore(corpus, queryTokens, idx) }))
     .filter((s) => s.score > 0)
-    .sort((a, b) => (b.score - a.score) || (a.idx - b.idx));
+    .sort((a, b) => b.score - a.score || a.idx - b.idx);
 
   if (scored.length === 0) return { kind: "none" };
 
   const top = scored[0]!;
   const second = scored[1];
 
-  if (second && (top.score - second.score) <= AMBIGUITY_MARGIN) {
-    // Near-equal top hits → ambiguous. Include up to 3 candidates within the margin.
+  // Relative ambiguity: if the runner-up scores within AMBIGUITY_RATIO of the top, the
+  // distinction is too weak to pick silently — surface the top candidates and let the
+  // caller (the skill) ask. idf scoring means a genuinely distinctive word makes the top
+  // pull far ahead, so this fires only when frames really are near-indistinguishable.
+  if (second && second.score >= top.score * AMBIGUITY_RATIO) {
     const candidates = scored
-      .filter((s) => (top.score - s.score) <= AMBIGUITY_MARGIN)
+      .filter((s) => s.score >= top.score * AMBIGUITY_RATIO)
       .slice(0, 3)
       .map((s) => s.frame);
     if (candidates.length >= 2) {
@@ -249,7 +299,7 @@ export function resolveFrame(spec: Spec, ref: string): FrameResolution {
   return {
     kind: "resolved",
     frame: top.frame,
-    reason: `semantic match (score ${top.score}) → ${top.frame.id}: "${top.frame.caption}"`,
+    reason: `semantic match (score ${top.score.toFixed(2)}) → ${top.frame.id}: "${top.frame.caption}"`,
   };
 }
 
@@ -330,6 +380,22 @@ function boxScore(phraseTokens: string[], box: Box): number {
 }
 
 /**
+ * Tiebreak among boxes that score equally: prefer a stable, human-meaningful selector
+ * (id / data-*) over a generic or positional one (a bare tag, or a Playwright `>> nth=`
+ * locator). This keeps auto-anchored callouts pointing at `[data-add]` rather than
+ * `button >> nth=0` when both resolve the same element.
+ */
+function selectorQuality(selector: string): number {
+  const s = selector.trim();
+  let q = 0;
+  if (/(>>|\bnth=)/.test(s)) q -= 0.4; // positional locator
+  if (/^\[role\]$/.test(s)) q -= 0.4; // matches anything with a role
+  if (/^[a-z]+\d*$/i.test(s)) q -= 0.2; // bare tag like "button"
+  if (s.startsWith("#") || /^\[data-/.test(s) || /^\[id/.test(s)) q += 0.2; // stable handle
+  return q;
+}
+
+/**
  * Resolve an anchor for `targetPhrase` on a frame.
  *
  * Auto-anchoring is the marquee feature, so this PREFERS returning a real box `selector`:
@@ -396,12 +462,15 @@ function bestBox(
   phraseTokens: string[],
   boxes: Box[],
 ): { box: Box; score: number } | undefined {
-  let best: { box: Box; score: number } | undefined;
+  let best: { box: Box; score: number; quality: number } | undefined;
   for (const box of boxes) {
     const score = boxScore(phraseTokens, box);
-    if (!best || score > best.score) best = { box, score };
+    const quality = selectorQuality(box.selector);
+    if (!best || score > best.score || (score === best.score && quality > best.quality)) {
+      best = { box, score, quality };
+    }
   }
-  return best;
+  return best ? { box: best.box, score: best.score } : undefined;
 }
 
 // ---------------------------------------------------------------------------

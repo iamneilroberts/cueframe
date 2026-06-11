@@ -119,24 +119,37 @@ export async function buildAxDigest(page: Page): Promise<string> {
   return clean(extracted.title) || "page";
 }
 
-/** Selectors always probed for boxes, beyond the scenario-referenced ones (§3.1). */
+/**
+ * Selectors always probed for boxes, beyond the scenario-referenced ones (§3.1).
+ *
+ * Ordering matters: boxes are deduped by rect and the FIRST selector to claim an element
+ * wins, so STABLE selectors (id / data-* / specific attribute values) come first. This way
+ * every element gets the same clean, human-meaningful selector on every frame — the Add
+ * button is always `[data-add]`, never a frame-dependent `button >> nth=0`. Generic tag
+ * fallbacks come last and only claim elements no stable selector covered.
+ */
 const GENERIC_SELECTORS = [
-  "button",
-  "a[href]",
-  "input",
-  "textarea",
-  "select",
-  "[role]",
-  "[data-todo]",
-  "[data-text]",
-  "[data-toggle]",
-  "[data-delete]",
+  // Stable, human-meaningful selectors first.
   "[data-add]",
   "[data-new-todo]",
   "[data-count]",
   "[data-clear-completed]",
-  "[data-filter]",
   "[data-heading]",
+  "[data-filter=all]",
+  "[data-filter=active]",
+  "[data-filter=completed]",
+  "[data-filter]",
+  "[data-todo]",
+  "[data-text]",
+  "[data-toggle]",
+  "[data-delete]",
+  "[id]",
+  // Generic interactive fallbacks last.
+  "textarea",
+  "input",
+  "select",
+  "a[href]",
+  "button",
 ];
 
 function roundRect(r: { x: number; y: number; width: number; height: number }): Rect {
@@ -160,7 +173,7 @@ function roundRect(r: { x: number; y: number; width: number; height: number }): 
 export async function collectBoxes(
   page: Page,
   extraSelectors: string[] = [],
-  cap = 12,
+  cap = 16,
 ): Promise<Box[]> {
   const viewport = page.viewportSize() ?? { width: 1280, height: 800 };
   const selectors = Array.from(new Set([...extraSelectors, ...GENERIC_SELECTORS]));
@@ -224,8 +237,13 @@ export async function collectBoxes(
     }
   }
 
-  // Most meaningful first: prefer labelled and larger elements, then cap.
+  // Most meaningful first, then cap. Interactive controls (a user's likely callout
+  // targets) rank above decorative elements even when small — so a checkbox is not dropped
+  // in favour of a big container. Within a tier: labelled first, then larger.
   boxes.sort((a, b) => {
+    const pa = anchorPriority(a.selector);
+    const pb = anchorPriority(b.selector);
+    if (pa !== pb) return pb - pa;
     const la = a.label ? 1 : 0;
     const lb = b.label ? 1 : 0;
     if (la !== lb) return lb - la;
@@ -233,4 +251,14 @@ export async function collectBoxes(
   });
 
   return boxes.slice(0, cap);
+}
+
+/** How likely an element is a callout target, from its selector (higher = keep first). */
+function anchorPriority(selector: string): number {
+  const s = selector.toLowerCase();
+  // Interactive controls a user points at.
+  if (/(toggle|add|delete|button|input|textarea|select|filter|new-todo|clear)/.test(s)) return 2;
+  // Named/result-bearing content (todo rows, text, counts, headings).
+  if (/(\[data-|\[id|#|\[role)/.test(s)) return 1;
+  return 0;
 }
