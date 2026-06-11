@@ -47,6 +47,17 @@ const EXAMPLES: Record<string, ExampleConfig> = {
       { frameRef: "order confirmed thank you for your order", targetPhrase: "thank you for your order", title: "Order confirmed in three steps" },
     ],
   },
+  toolshop: {
+    url: "https://practicesoftwaretesting.com/",
+    title: "Toolshop browse to cart",
+    app: "practicesoftwaretesting.com (Toolshop)",
+    dir: "examples/toolshop",
+    callouts: [
+      { frameRef: "a product detail page with the price and add to cart", targetPhrase: "add to cart", title: "Add to the cart from the product page" },
+      { frameRef: "the shopping cart with the running total", targetPhrase: "proceed to checkout", title: "Proceed to checkout in one click" },
+      { frameRef: "the shopping cart with the running total", targetPhrase: "cart total", title: "Your running total updates live" },
+    ],
+  },
 };
 
 /** Resolve a frame from plain English; on ambiguity take the top candidate (deterministic). */

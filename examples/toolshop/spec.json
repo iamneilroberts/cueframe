@@ -1,0 +1,1043 @@
+{
+  "meta": {
+    "title": "Toolshop browse to cart",
+    "app": "practicesoftwaretesting.com (Toolshop)",
+    "createdAt": "2026-06-11T04:09:52.389Z",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "frames": [
+    {
+      "id": "f1",
+      "n": 1,
+      "kind": "golden",
+      "img": "frames/f1.png",
+      "caption": "The Toolshop catalog of tools.",
+      "axDigest": "button \"Testing Guide\"; button \"🐛 Bug Hunting\"; button \"Categories\"; button \"Select language\"; button \"X\"; button \"Search\"; button \"Compare\"; button \"Previous\"; button \"Page-1\"; button \"Page-2\"; button \"Page-3\"; button \"Page-4\"; button \"Page-5\"; button \"Next\"; button \"Open chat\"; link \"Documentation\"; link \"Home\"; link \"Contact\"; link \"Sign in\"; link \"Combination Pliers ABCDE$14.15\"; link \"Pliers ABCDE$12.01\"; link \"Bolt Cutters ABCDE$48.41\"; link \"Long Nose Pliers ABCDEOut of stock$14.24\"; link \"Slip Joint Pliers ABCDE$9.17\"; link \"Claw Hammer with Shock Reduction Grip ABCDE$13.41\"; link \"Hammer ABCDE$12.58\"; link \"Claw Hammer ABCDE$11.48\"; link \"Thor Hammer ABCDE$11.14\"; link \"GitHub repo\"; link \"Privacy Policy\"; link \"Barn Images\"; link \"Unsplash\"; textbox \"Search\"; checkbox \"01KTTDD30E7Y5PZ8NEF1VHWKNE\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPP\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPQ\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPR\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPS\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPT\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPV\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPW\"; checkbox \"01KTTDD30E7Y5PZ8NEF1VHWKNF\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPX\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPY\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYPZ\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ0\"; checkbox \"01KTTDD30E7Y5PZ8NEF1VHWKNG\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ1\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ2\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ3\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ4\"; checkbox \"01KTTDD30VCSG2WCTSZ6F1HYQ5\"; checkbox \"01KTTDD2P8DEG97G5K818B26QF\"; checkbox \"01KTTDD2P8DEG97G5K818B26QG\"; checkbox \"on\"; listitem \"Home\"; listitem \"Categories Hand ToolsPower ToolsOtherSpecial ToolsRentals\"; listitem \"Contact\"; listitem \"Sign in\"; listitem \"«\"; listitem \"1\"; listitem \"2\"; listitem \"3\"; listitem \"4\"; listitem \"5\"; listitem \"»\"; 0/22 checked",
+      "boxes": [
+        {
+          "selector": "#filters",
+          "rect": {
+            "x": 70,
+            "y": 477,
+            "w": 285,
+            "h": 1235
+          },
+          "label": "Sort Name (A - Z)Name (Z - A)Price (High - Low)Price (Low - High)CO₂ Rating (A -"
+        },
+        {
+          "selector": "button >> nth=1",
+          "rect": {
+            "x": 784,
+            "y": 50,
+            "w": 134,
+            "h": 32
+          },
+          "label": "🐛 Bug Hunting"
+        },
+        {
+          "selector": "button >> nth=0",
+          "rect": {
+            "x": 648,
+            "y": 50,
+            "w": 120,
+            "h": 32
+          },
+          "label": "Testing Guide"
+        },
+        {
+          "selector": "[data-test=\"chat-toggle\"]",
+          "rect": {
+            "x": 1204,
+            "y": 724,
+            "w": 56,
+            "h": 56
+          },
+          "label": "Open chat"
+        },
+        {
+          "selector": "[data-test] >> nth=46",
+          "rect": {
+            "x": 367,
+            "y": 477,
+            "w": 831,
+            "h": 1181
+          },
+          "label": "Combination Pliers ABCDE$14.15 Pliers ABCDE$12.01 Bolt Cutters ABCDE$48.41 Long "
+        },
+        {
+          "selector": "[data-test=\"product-01KTTDD32XV56P1RY0N6TVJCZP\"]",
+          "rect": {
+            "x": 379,
+            "y": 477,
+            "w": 259,
+            "h": 376
+          },
+          "label": "Combination Pliers ABCDE$14.15"
+        },
+        {
+          "selector": "[data-test=\"product-01KTTDD336E0P5X06CGF0N0S91\"]",
+          "rect": {
+            "x": 653,
+            "y": 477,
+            "w": 259,
+            "h": 376
+          },
+          "label": "Pliers ABCDE$12.01"
+        },
+        {
+          "selector": "[data-test=\"product-01KTTDD339JDDBNAXP9A61HSNK\"]",
+          "rect": {
+            "x": 927,
+            "y": 477,
+            "w": 259,
+            "h": 376
+          },
+          "label": "Bolt Cutters ABCDE$48.41"
+        },
+        {
+          "selector": "[data-test=\"notification-bar\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 40
+          },
+          "label": "View the Documentation for this application."
+        },
+        {
+          "selector": "#navbarSupportedContent",
+          "rect": {
+            "x": 378,
+            "y": 112,
+            "w": 820,
+            "h": 40
+          },
+          "label": "Home Categories Hand ToolsPower ToolsOtherSpecial ToolsRentalsContactSign in EN "
+        },
+        {
+          "selector": "[data-test=\"sort\"]",
+          "rect": {
+            "x": 82,
+            "y": 539,
+            "w": 261,
+            "h": 38
+          },
+          "label": "sort"
+        },
+        {
+          "selector": "#search-query",
+          "rect": {
+            "x": 81,
+            "y": 786,
+            "w": 152,
+            "h": 38
+          },
+          "label": "Search"
+        },
+        {
+          "selector": "[data-test] >> nth=49",
+          "rect": {
+            "x": 396,
+            "y": 734,
+            "w": 225,
+            "h": 24
+          },
+          "label": "Combination Pliers"
+        },
+        {
+          "selector": "[data-test] >> nth=54",
+          "rect": {
+            "x": 670,
+            "y": 734,
+            "w": 225,
+            "h": 24
+          },
+          "label": "Pliers"
+        },
+        {
+          "selector": "[data-test] >> nth=59",
+          "rect": {
+            "x": 944,
+            "y": 734,
+            "w": 225,
+            "h": 24
+          },
+          "label": "Bolt Cutters"
+        },
+        {
+          "selector": "[data-test=\"nav-categories\"]",
+          "rect": {
+            "x": 887,
+            "y": 112,
+            "w": 113,
+            "h": 40
+          },
+          "label": "Categories"
+        },
+        {
+          "selector": "[data-test] >> nth=50",
+          "rect": {
+            "x": 396,
+            "y": 767,
+            "w": 144,
+            "h": 28
+          },
+          "label": "ABCDE"
+        },
+        {
+          "selector": "[data-test] >> nth=55",
+          "rect": {
+            "x": 670,
+            "y": 767,
+            "w": 144,
+            "h": 28
+          },
+          "label": "ABCDE"
+        },
+        {
+          "selector": "[data-test] >> nth=60",
+          "rect": {
+            "x": 944,
+            "y": 767,
+            "w": 144,
+            "h": 28
+          },
+          "label": "ABCDE"
+        },
+        {
+          "selector": "[data-test=\"nav-contact\"]",
+          "rect": {
+            "x": 1000,
+            "y": 112,
+            "w": 74,
+            "h": 40
+          },
+          "label": "Contact"
+        },
+        {
+          "selector": "[data-test=\"search-submit\"]",
+          "rect": {
+            "x": 266,
+            "y": 786,
+            "w": 77,
+            "h": 38
+          },
+          "label": "Search"
+        },
+        {
+          "selector": "[data-test=\"nav-sign-in\"]",
+          "rect": {
+            "x": 1074,
+            "y": 112,
+            "w": 67,
+            "h": 40
+          },
+          "label": "Sign in"
+        },
+        {
+          "selector": "[data-test=\"nav-home\"]",
+          "rect": {
+            "x": 825,
+            "y": 112,
+            "w": 62,
+            "h": 40
+          },
+          "label": "Home"
+        },
+        {
+          "selector": "#language",
+          "rect": {
+            "x": 1141,
+            "y": 120,
+            "w": 57,
+            "h": 24
+          },
+          "label": "Select language"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "n": 2,
+      "kind": "golden",
+      "img": "frames/f2.png",
+      "caption": "A product detail page with the price and Add to cart.",
+      "axDigest": "heading \"Combination Pliers\"; heading \"Specifications\"; heading \"Related products\"; button \"Testing Guide\"; button \"🐛 Bug Hunting\"; button \"Categories\"; button \"Select language\"; button \"Decrease quantity\"; button \"Increase quantity\"; button \"Add to cart\"; button \"Add to favourites\"; button \"Compare\"; button \"Open chat\"; link \"Documentation\"; link \"Home\"; link \"Contact\"; link \"Sign in\"; link \"Helinton Fantin\"; link \"Unsplash\"; link \"Pliers More information\"; link \"More information\"; link \"Bolt Cutters More information\"; link \"Long Nose Pliers More information\"; link \"Slip Joint Pliers More information\"; link \"GitHub repo\"; link \"Privacy Policy\"; link \"Barn Images\"; listitem \"Home\"; listitem \"Categories Hand ToolsPower ToolsOtherSpecial ToolsRentals\"; listitem \"Contact\"; listitem \"Sign in\"",
+      "boxes": [
+        {
+          "selector": "#btn-add-to-favorites",
+          "rect": {
+            "x": 786,
+            "y": 703,
+            "w": 185,
+            "h": 38
+          },
+          "label": "Add to favourites"
+        },
+        {
+          "selector": "#btn-add-to-cart",
+          "rect": {
+            "x": 652,
+            "y": 703,
+            "w": 135,
+            "h": 38
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "[data-test=\"add-to-compare\"]",
+          "rect": {
+            "x": 970,
+            "y": 703,
+            "w": 127,
+            "h": 38
+          },
+          "label": "Compare"
+        },
+        {
+          "selector": "button >> nth=1",
+          "rect": {
+            "x": 784,
+            "y": 50,
+            "w": 134,
+            "h": 32
+          },
+          "label": "🐛 Bug Hunting"
+        },
+        {
+          "selector": "button >> nth=0",
+          "rect": {
+            "x": 648,
+            "y": 50,
+            "w": 120,
+            "h": 32
+          },
+          "label": "Testing Guide"
+        },
+        {
+          "selector": "[data-test=\"chat-toggle\"]",
+          "rect": {
+            "x": 1204,
+            "y": 724,
+            "w": 56,
+            "h": 56
+          },
+          "label": "Open chat"
+        },
+        {
+          "selector": "#quantity-input",
+          "rect": {
+            "x": 691,
+            "y": 657,
+            "w": 47,
+            "h": 38
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#description",
+          "rect": {
+            "x": 652,
+            "y": 377,
+            "w": 546,
+            "h": 264
+          },
+          "label": "Versatile combination pliers designed for gripping, bending, and cutting wire wi"
+        },
+        {
+          "selector": "[data-test=\"notification-bar\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 40
+          },
+          "label": "View the Documentation for this application."
+        },
+        {
+          "selector": "[data-test=\"specs-title\"]",
+          "rect": {
+            "x": 82,
+            "y": 765,
+            "w": 1116,
+            "h": 34
+          },
+          "label": "Specifications"
+        },
+        {
+          "selector": "#navbarSupportedContent",
+          "rect": {
+            "x": 378,
+            "y": 112,
+            "w": 820,
+            "h": 40
+          },
+          "label": "Home Categories Hand ToolsPower ToolsOtherSpecial ToolsRentalsContactSign in EN "
+        },
+        {
+          "selector": "[data-test=\"product-name\"]",
+          "rect": {
+            "x": 652,
+            "y": 189,
+            "w": 546,
+            "h": 48
+          },
+          "label": "Combination Pliers"
+        },
+        {
+          "selector": "[data-test=\"co2-rating-badge\"]",
+          "rect": {
+            "x": 652,
+            "y": 325,
+            "w": 180,
+            "h": 36
+          },
+          "label": "ABCDE"
+        },
+        {
+          "selector": "[data-test=\"nav-categories\"]",
+          "rect": {
+            "x": 887,
+            "y": 112,
+            "w": 113,
+            "h": 40
+          },
+          "label": "Categories"
+        },
+        {
+          "selector": "[data-test=\"nav-contact\"]",
+          "rect": {
+            "x": 1000,
+            "y": 112,
+            "w": 74,
+            "h": 40
+          },
+          "label": "Contact"
+        },
+        {
+          "selector": "[data-test=\"nav-sign-in\"]",
+          "rect": {
+            "x": 1074,
+            "y": 112,
+            "w": 67,
+            "h": 40
+          },
+          "label": "Sign in"
+        },
+        {
+          "selector": "[data-test=\"nav-home\"]",
+          "rect": {
+            "x": 825,
+            "y": 112,
+            "w": 62,
+            "h": 40
+          },
+          "label": "Home"
+        },
+        {
+          "selector": "#btn-decrease-quantity",
+          "rect": {
+            "x": 652,
+            "y": 657,
+            "w": 40,
+            "h": 38
+          },
+          "label": "Decrease quantity"
+        },
+        {
+          "selector": "#btn-increase-quantity",
+          "rect": {
+            "x": 737,
+            "y": 657,
+            "w": 40,
+            "h": 38
+          },
+          "label": "Increase quantity"
+        },
+        {
+          "selector": "#language",
+          "rect": {
+            "x": 1141,
+            "y": 120,
+            "w": 57,
+            "h": 24
+          },
+          "label": "Select language"
+        },
+        {
+          "selector": "[data-test=\"unit-price\"]",
+          "rect": {
+            "x": 661,
+            "y": 286,
+            "w": 41,
+            "h": 22
+          },
+          "label": "unit-price"
+        },
+        {
+          "selector": "#Layer_1",
+          "rect": {
+            "x": 82,
+            "y": 105,
+            "w": 280,
+            "h": 55
+          }
+        },
+        {
+          "selector": "a[href] >> nth=0",
+          "rect": {
+            "x": 541,
+            "y": 9,
+            "w": 117,
+            "h": 22
+          },
+          "label": "Documentation"
+        },
+        {
+          "selector": "a[href] >> nth=10",
+          "rect": {
+            "x": 144,
+            "y": 566,
+            "w": 101,
+            "h": 19
+          },
+          "label": "Helinton Fantin"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "n": 3,
+      "kind": "golden",
+      "img": "frames/f3.png",
+      "caption": "The item is added to the cart.",
+      "axDigest": "heading \"Combination Pliers\"; heading \"Specifications\"; heading \"Related products\"; button \"Testing Guide\"; button \"🐛 Bug Hunting\"; button \"Categories\"; button \"Select language\"; button \"Decrease quantity\"; button \"Increase quantity\"; button \"Add to cart\"; button \"Add to favourites\"; button \"Compare\"; button \"Open chat\"; link \"Documentation\"; link \"Home\"; link \"Contact\"; link \"Sign in\"; link \"cart\"; link \"Helinton Fantin\"; link \"Unsplash\"; link \"Pliers More information\"; link \"More information\"; link \"Bolt Cutters More information\"; link \"Long Nose Pliers More information\"; link \"Slip Joint Pliers More information\"; link \"GitHub repo\"; link \"Privacy Policy\"; link \"Barn Images\"; listitem \"Home\"; listitem \"Categories Hand ToolsPower ToolsOtherSpecial ToolsRentals\"; listitem \"Contact\"; listitem \"Sign in\"; listitem \"1\"",
+      "boxes": [
+        {
+          "selector": "#btn-add-to-favorites",
+          "rect": {
+            "x": 786,
+            "y": 703,
+            "w": 185,
+            "h": 38
+          },
+          "label": "Add to favourites"
+        },
+        {
+          "selector": "#btn-add-to-cart",
+          "rect": {
+            "x": 652,
+            "y": 703,
+            "w": 135,
+            "h": 38
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "[data-test=\"add-to-compare\"]",
+          "rect": {
+            "x": 970,
+            "y": 703,
+            "w": 127,
+            "h": 38
+          },
+          "label": "Compare"
+        },
+        {
+          "selector": "button >> nth=1",
+          "rect": {
+            "x": 784,
+            "y": 50,
+            "w": 134,
+            "h": 32
+          },
+          "label": "🐛 Bug Hunting"
+        },
+        {
+          "selector": "button >> nth=0",
+          "rect": {
+            "x": 648,
+            "y": 50,
+            "w": 120,
+            "h": 32
+          },
+          "label": "Testing Guide"
+        },
+        {
+          "selector": "[data-test=\"chat-toggle\"]",
+          "rect": {
+            "x": 1204,
+            "y": 724,
+            "w": 56,
+            "h": 56
+          },
+          "label": "Open chat"
+        },
+        {
+          "selector": "#quantity-input",
+          "rect": {
+            "x": 691,
+            "y": 657,
+            "w": 47,
+            "h": 38
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#description",
+          "rect": {
+            "x": 652,
+            "y": 377,
+            "w": 546,
+            "h": 264
+          },
+          "label": "Versatile combination pliers designed for gripping, bending, and cutting wire wi"
+        },
+        {
+          "selector": "[data-test=\"notification-bar\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 40
+          },
+          "label": "View the Documentation for this application."
+        },
+        {
+          "selector": "[data-test=\"specs-title\"]",
+          "rect": {
+            "x": 82,
+            "y": 765,
+            "w": 1116,
+            "h": 34
+          },
+          "label": "Specifications"
+        },
+        {
+          "selector": "#navbarSupportedContent",
+          "rect": {
+            "x": 378,
+            "y": 112,
+            "w": 820,
+            "h": 40
+          },
+          "label": "Home Categories Hand ToolsPower ToolsOtherSpecial ToolsRentalsContactSign in1 EN"
+        },
+        {
+          "selector": "[data-test=\"product-name\"]",
+          "rect": {
+            "x": 652,
+            "y": 189,
+            "w": 546,
+            "h": 48
+          },
+          "label": "Combination Pliers"
+        },
+        {
+          "selector": "#toast-container",
+          "rect": {
+            "x": 968,
+            "y": 12,
+            "w": 300,
+            "h": 84
+          },
+          "label": "Product added to shopping cart."
+        },
+        {
+          "selector": "[data-test=\"co2-rating-badge\"]",
+          "rect": {
+            "x": 652,
+            "y": 325,
+            "w": 180,
+            "h": 36
+          },
+          "label": "ABCDE"
+        },
+        {
+          "selector": "[data-test=\"nav-categories\"]",
+          "rect": {
+            "x": 831,
+            "y": 112,
+            "w": 113,
+            "h": 40
+          },
+          "label": "Categories"
+        },
+        {
+          "selector": "[data-test=\"nav-contact\"]",
+          "rect": {
+            "x": 944,
+            "y": 112,
+            "w": 74,
+            "h": 40
+          },
+          "label": "Contact"
+        },
+        {
+          "selector": "[data-test=\"nav-sign-in\"]",
+          "rect": {
+            "x": 1018,
+            "y": 112,
+            "w": 67,
+            "h": 40
+          },
+          "label": "Sign in"
+        },
+        {
+          "selector": "[data-test=\"nav-home\"]",
+          "rect": {
+            "x": 769,
+            "y": 112,
+            "w": 62,
+            "h": 40
+          },
+          "label": "Home"
+        },
+        {
+          "selector": "[data-test=\"nav-cart\"]",
+          "rect": {
+            "x": 1085,
+            "y": 112,
+            "w": 56,
+            "h": 40
+          },
+          "label": "cart"
+        },
+        {
+          "selector": "#btn-decrease-quantity",
+          "rect": {
+            "x": 652,
+            "y": 657,
+            "w": 40,
+            "h": 38
+          },
+          "label": "Decrease quantity"
+        },
+        {
+          "selector": "#btn-increase-quantity",
+          "rect": {
+            "x": 737,
+            "y": 657,
+            "w": 40,
+            "h": 38
+          },
+          "label": "Increase quantity"
+        },
+        {
+          "selector": "#language",
+          "rect": {
+            "x": 1141,
+            "y": 120,
+            "w": 57,
+            "h": 24
+          },
+          "label": "Select language"
+        },
+        {
+          "selector": "[data-test=\"unit-price\"]",
+          "rect": {
+            "x": 661,
+            "y": 286,
+            "w": 41,
+            "h": 22
+          },
+          "label": "unit-price"
+        },
+        {
+          "selector": "#lblCartCount",
+          "rect": {
+            "x": 1109,
+            "y": 115,
+            "w": 24,
+            "h": 17
+          },
+          "label": "1"
+        }
+      ]
+    },
+    {
+      "id": "f4",
+      "n": 4,
+      "kind": "golden",
+      "img": "frames/f4.png",
+      "caption": "The shopping cart with the running total.",
+      "axDigest": "button \"Testing Guide\"; button \"🐛 Bug Hunting\"; button \"Categories\"; button \"Select language\"; button \"Continue Shopping\"; button \"Proceed to checkout\"; button \"Open chat\"; link \"Documentation\"; link \"Home\"; link \"Contact\"; link \"Sign in\"; link \"cart\"; link \"GitHub repo\"; link \"Privacy Policy\"; link \"Barn Images\"; link \"Unsplash\"; listitem \"Home\"; listitem \"Categories Hand ToolsPower ToolsOtherSpecial ToolsRentals\"; listitem \"Contact\"; listitem \"Sign in\"; listitem \"1\"; listitem \"Cart1\"; listitem \"Sign in2\"; listitem \"Billing Address3\"; listitem \"Payment4\"",
+      "boxes": [
+        {
+          "selector": "button >> nth=1",
+          "rect": {
+            "x": 784,
+            "y": 50,
+            "w": 134,
+            "h": 32
+          },
+          "label": "🐛 Bug Hunting"
+        },
+        {
+          "selector": "button >> nth=0",
+          "rect": {
+            "x": 648,
+            "y": 50,
+            "w": 120,
+            "h": 32
+          },
+          "label": "Testing Guide"
+        },
+        {
+          "selector": "[data-test=\"chat-toggle\"]",
+          "rect": {
+            "x": 1204,
+            "y": 724,
+            "w": 56,
+            "h": 56
+          },
+          "label": "Open chat"
+        },
+        {
+          "selector": "[data-test=\"notification-bar\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 40
+          },
+          "label": "View the Documentation for this application."
+        },
+        {
+          "selector": "#navbarSupportedContent",
+          "rect": {
+            "x": 378,
+            "y": 112,
+            "w": 820,
+            "h": 40
+          },
+          "label": "Home Categories Hand ToolsPower ToolsOtherSpecial ToolsRentalsContactSign in1 EN"
+        },
+        {
+          "selector": "#toast-container",
+          "rect": {
+            "x": 968,
+            "y": 12,
+            "w": 300,
+            "h": 84
+          },
+          "label": "Product added to shopping cart."
+        },
+        {
+          "selector": "[data-test=\"cart-total\"]",
+          "rect": {
+            "x": 919,
+            "y": 366,
+            "w": 186,
+            "h": 41
+          },
+          "label": "$14.15"
+        },
+        {
+          "selector": "[data-test=\"proceed-1\"]",
+          "rect": {
+            "x": 1019,
+            "y": 424,
+            "w": 179,
+            "h": 38
+          },
+          "label": "Proceed to checkout"
+        },
+        {
+          "selector": "#quantity-01kttdye9wxntkvzm7cmxjs9zk",
+          "rect": {
+            "x": 555,
+            "y": 320,
+            "w": 170,
+            "h": 38
+          },
+          "label": "1"
+        },
+        {
+          "selector": "[data-test=\"continue-shopping\"]",
+          "rect": {
+            "x": 82,
+            "y": 424,
+            "w": 170,
+            "h": 38
+          },
+          "label": "Continue Shopping"
+        },
+        {
+          "selector": "[data-test=\"nav-categories\"]",
+          "rect": {
+            "x": 831,
+            "y": 112,
+            "w": 113,
+            "h": 40
+          },
+          "label": "Categories"
+        },
+        {
+          "selector": "[data-test=\"product-title\"]",
+          "rect": {
+            "x": 90,
+            "y": 321,
+            "w": 147,
+            "h": 22
+          },
+          "label": "Combination Pliers"
+        },
+        {
+          "selector": "[data-test=\"nav-contact\"]",
+          "rect": {
+            "x": 944,
+            "y": 112,
+            "w": 74,
+            "h": 40
+          },
+          "label": "Contact"
+        },
+        {
+          "selector": "[data-test=\"nav-sign-in\"]",
+          "rect": {
+            "x": 1018,
+            "y": 112,
+            "w": 67,
+            "h": 40
+          },
+          "label": "Sign in"
+        },
+        {
+          "selector": "[data-test=\"nav-home\"]",
+          "rect": {
+            "x": 769,
+            "y": 112,
+            "w": 62,
+            "h": 40
+          },
+          "label": "Home"
+        },
+        {
+          "selector": "[data-test=\"nav-cart\"]",
+          "rect": {
+            "x": 1085,
+            "y": 112,
+            "w": 56,
+            "h": 40
+          },
+          "label": "cart"
+        },
+        {
+          "selector": "#language",
+          "rect": {
+            "x": 1141,
+            "y": 120,
+            "w": 57,
+            "h": 24
+          },
+          "label": "Select language"
+        },
+        {
+          "selector": "[data-test=\"product-price\"]",
+          "rect": {
+            "x": 861,
+            "y": 321,
+            "w": 50,
+            "h": 22
+          },
+          "label": "$14.15"
+        },
+        {
+          "selector": "[data-test=\"line-price\"]",
+          "rect": {
+            "x": 1047,
+            "y": 321,
+            "w": 50,
+            "h": 22
+          },
+          "label": "$14.15"
+        },
+        {
+          "selector": "#lblCartCount",
+          "rect": {
+            "x": 1109,
+            "y": 115,
+            "w": 24,
+            "h": 17
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#Layer_1",
+          "rect": {
+            "x": 82,
+            "y": 105,
+            "w": 280,
+            "h": 55
+          }
+        },
+        {
+          "selector": "a[href] >> nth=0",
+          "rect": {
+            "x": 541,
+            "y": 9,
+            "w": 117,
+            "h": 22
+          },
+          "label": "Documentation"
+        },
+        {
+          "selector": "a[href] >> nth=16",
+          "rect": {
+            "x": 743,
+            "y": 535,
+            "w": 101,
+            "h": 22
+          },
+          "label": "Privacy Policy"
+        },
+        {
+          "selector": "a[href] >> nth=17",
+          "rect": {
+            "x": 991,
+            "y": 535,
+            "w": 96,
+            "h": 22
+          },
+          "label": "Barn Images"
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "frame": "f2",
+      "title": "Add to the cart from the product page",
+      "anchor": {
+        "selector": "#btn-add-to-cart"
+      },
+      "body": "A product detail page with the price and Add to cart.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c2",
+      "frame": "f4",
+      "title": "Proceed to checkout in one click",
+      "anchor": {
+        "selector": "[data-test=\"proceed-1\"]"
+      },
+      "body": "The shopping cart with the running total.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c3",
+      "frame": "f4",
+      "title": "Your running total updates live",
+      "anchor": {
+        "selector": "[data-test=\"cart-total\"]"
+      },
+      "body": "The shopping cart with the running total.",
+      "dwellMs": 3000
+    }
+  ]
+}

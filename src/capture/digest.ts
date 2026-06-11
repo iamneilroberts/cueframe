@@ -178,7 +178,7 @@ function roundRect(r: { x: number; y: number; width: number; height: number }): 
 export async function collectBoxes(
   page: Page,
   extraSelectors: string[] = [],
-  cap = 16,
+  cap = 24,
 ): Promise<Box[]> {
   const viewport = page.viewportSize() ?? { width: 1280, height: 800 };
   const selectors = Array.from(new Set([...extraSelectors, ...GENERIC_SELECTORS]));

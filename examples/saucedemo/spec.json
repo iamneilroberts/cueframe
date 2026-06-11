@@ -2,7 +2,7 @@
   "meta": {
     "title": "SauceDemo checkout",
     "app": "saucedemo.com (Swag Labs)",
-    "createdAt": "2026-06-11T03:58:19.035Z",
+    "createdAt": "2026-06-11T04:12:32.593Z",
     "viewport": {
       "w": 1280,
       "h": 800
@@ -275,6 +275,86 @@
             "h": 238
           },
           "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "[data-test] >> nth=27",
+          "rect": {
+            "x": 816,
+            "y": 155,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Bike LightA red light isn't the desired state in testing but it sure "
+        },
+        {
+          "selector": "[data-test] >> nth=36",
+          "rect": {
+            "x": 261,
+            "y": 407,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Bolt T-ShirtGet your testing superhero on with the Sauce Labs bolt T-"
+        },
+        {
+          "selector": "[data-test] >> nth=45",
+          "rect": {
+            "x": 816,
+            "y": 407,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Fleece JacketIt's not every day that you come across a midweight quar"
+        },
+        {
+          "selector": "[data-test] >> nth=54",
+          "rect": {
+            "x": 261,
+            "y": 659,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs OnesieRib snap infant onesie for the junior automation engineer in de"
+        },
+        {
+          "selector": "[data-test] >> nth=63",
+          "rect": {
+            "x": 816,
+            "y": 659,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Test.allTheThings() T-Shirt (Red)This classic Sauce Labs t-shirt is perfect to w"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "ProductsName (A to Z)Name (A to Z)Name (Z to A)Price (low to high)Price (high to"
+        },
+        {
+          "selector": "[data-test] >> nth=57",
+          "rect": {
+            "x": 281,
+            "y": 709,
+            "w": 299,
+            "h": 100
+          },
+          "label": "Rib snap infant onesie for the junior automation engineer in development. Reinfo"
         }
       ]
     },
@@ -445,6 +525,86 @@
             "h": 238
           },
           "label": "Sauce Labs Bike LightA red light isn't the desired state in testing but it sure "
+        },
+        {
+          "selector": "[data-test] >> nth=37",
+          "rect": {
+            "x": 261,
+            "y": 407,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Bolt T-ShirtGet your testing superhero on with the Sauce Labs bolt T-"
+        },
+        {
+          "selector": "[data-test] >> nth=46",
+          "rect": {
+            "x": 816,
+            "y": 407,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Fleece JacketIt's not every day that you come across a midweight quar"
+        },
+        {
+          "selector": "[data-test] >> nth=55",
+          "rect": {
+            "x": 261,
+            "y": 659,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs OnesieRib snap infant onesie for the junior automation engineer in de"
+        },
+        {
+          "selector": "[data-test] >> nth=64",
+          "rect": {
+            "x": 816,
+            "y": 659,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Test.allTheThings() T-Shirt (Red)This classic Sauce Labs t-shirt is perfect to w"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "ProductsName (A to Z)Name (A to Z)Name (Z to A)Price (low to high)Price (high to"
+        },
+        {
+          "selector": "[data-test] >> nth=58",
+          "rect": {
+            "x": 281,
+            "y": 709,
+            "w": 299,
+            "h": 100
+          },
+          "label": "Rib snap infant onesie for the junior automation engineer in development. Reinfo"
+        },
+        {
+          "selector": "[data-test] >> nth=22",
+          "rect": {
+            "x": 281,
+            "y": 205,
+            "w": 299,
+            "h": 80
+          },
+          "label": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromis"
         }
       ]
     },
@@ -615,6 +775,86 @@
             "h": 64
           },
           "label": "QTY"
+        },
+        {
+          "selector": "[data-test=\"title\"]",
+          "rect": {
+            "x": 20,
+            "y": 61,
+            "w": 80,
+            "h": 48
+          },
+          "label": "Your Cart"
+        },
+        {
+          "selector": "[data-test=\"inventory-item-price\"]",
+          "rect": {
+            "x": 90,
+            "y": 289,
+            "w": 72,
+            "h": 42
+          },
+          "label": "$29.99"
+        },
+        {
+          "selector": "[data-test=\"cart-desc-label\"]",
+          "rect": {
+            "x": 95,
+            "y": 136,
+            "w": 86,
+            "h": 20
+          },
+          "label": "Description"
+        },
+        {
+          "selector": "#shopping_cart_container",
+          "rect": {
+            "x": 1220,
+            "y": 10,
+            "w": 40,
+            "h": 40
+          },
+          "label": "1"
+        },
+        {
+          "selector": "[data-test=\"item-quantity\"]",
+          "rect": {
+            "x": 36,
+            "y": 199,
+            "w": 44,
+            "h": 36
+          },
+          "label": "1"
+        },
+        {
+          "selector": "[data-test=\"social-twitter\"]",
+          "rect": {
+            "x": 50,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Twitter"
+        },
+        {
+          "selector": "[data-test=\"social-facebook\"]",
+          "rect": {
+            "x": 100,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Facebook"
+        },
+        {
+          "selector": "[data-test=\"social-linkedin\"]",
+          "rect": {
+            "x": 150,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "LinkedIn"
         }
       ]
     },
@@ -785,6 +1025,46 @@
             "h": 30
           },
           "label": "Twitter"
+        },
+        {
+          "selector": "[data-test=\"social-facebook\"]",
+          "rect": {
+            "x": 100,
+            "y": 744,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Facebook"
+        },
+        {
+          "selector": "[data-test=\"social-linkedin\"]",
+          "rect": {
+            "x": 150,
+            "y": 744,
+            "w": 30,
+            "h": 30
+          },
+          "label": "LinkedIn"
+        },
+        {
+          "selector": "#react-burger-menu-btn",
+          "rect": {
+            "x": 20,
+            "y": 20,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Open Menu"
+        },
+        {
+          "selector": "[data-test=\"shopping-cart-badge\"]",
+          "rect": {
+            "x": 1240,
+            "y": 10,
+            "w": 20,
+            "h": 20
+          },
+          "label": "1"
         }
       ]
     },
@@ -955,6 +1235,86 @@
             "h": 20
           },
           "label": "Item total: $29.99"
+        },
+        {
+          "selector": "[data-test=\"tax-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 574,
+            "w": 1250,
+            "h": 20
+          },
+          "label": "Tax: $2.40"
+        },
+        {
+          "selector": "#item_4_title_link",
+          "rect": {
+            "x": 90,
+            "y": 199,
+            "w": 1154,
+            "h": 20
+          },
+          "label": "Sauce Labs Backpack"
+        },
+        {
+          "selector": "[data-test=\"title\"]",
+          "rect": {
+            "x": 20,
+            "y": 61,
+            "w": 171,
+            "h": 48
+          },
+          "label": "Checkout: Overview"
+        },
+        {
+          "selector": "#cancel",
+          "rect": {
+            "x": 15,
+            "y": 682,
+            "w": 220,
+            "h": 34
+          },
+          "label": "Cancel"
+        },
+        {
+          "selector": "#finish",
+          "rect": {
+            "x": 1045,
+            "y": 682,
+            "w": 220,
+            "h": 34
+          },
+          "label": "Finish"
+        },
+        {
+          "selector": "[data-test=\"cart-quantity-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 114,
+            "w": 80,
+            "h": 64
+          },
+          "label": "QTY"
+        },
+        {
+          "selector": "[data-test=\"inventory-item-price\"]",
+          "rect": {
+            "x": 90,
+            "y": 289,
+            "w": 72,
+            "h": 42
+          },
+          "label": "$29.99"
+        },
+        {
+          "selector": "[data-test=\"cart-desc-label\"]",
+          "rect": {
+            "x": 95,
+            "y": 136,
+            "w": 86,
+            "h": 20
+          },
+          "label": "Description"
         }
       ]
     },
@@ -1125,6 +1485,24 @@
             "h": 20
           },
           "label": "Open Menu"
+        },
+        {
+          "selector": "[data-test=\"pony-express\"]",
+          "rect": {
+            "x": 604,
+            "y": 174,
+            "w": 72,
+            "h": 72
+          }
+        },
+        {
+          "selector": "#shopping_cart_container",
+          "rect": {
+            "x": 1220,
+            "y": 10,
+            "w": 40,
+            "h": 40
+          }
         }
       ]
     }

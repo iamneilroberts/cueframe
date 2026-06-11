@@ -1,0 +1,16 @@
+{
+  "name": "Toolshop browse to cart",
+  "steps": [
+    { "action": "waitFor", "selector": "[data-test^=\"product-\"]" },
+    { "action": "snapshot", "caption": "The Toolshop catalog of tools." },
+    { "action": "click", "selector": "[data-test^=\"product-\"]", "label": "Open product" },
+    { "action": "waitFor", "selector": "[data-test=\"add-to-cart\"]" },
+    { "action": "snapshot", "caption": "A product detail page with the price and Add to cart." },
+    { "action": "click", "selector": "[data-test=\"add-to-cart\"]", "label": "Add to cart" },
+    { "action": "waitFor", "ms": 1500 },
+    { "action": "snapshot", "caption": "The item is added to the cart." },
+    { "action": "click", "selector": "[data-test=\"nav-cart\"]", "label": "Cart" },
+    { "action": "waitFor", "ms": 2500 },
+    { "action": "snapshot", "caption": "The shopping cart with the running total." }
+  ]
+}

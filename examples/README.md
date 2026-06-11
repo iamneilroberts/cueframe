@@ -8,6 +8,7 @@ workflow, author callouts from plain-English instructions, export `demo.html` / 
 | --- | --- | --- | --- | --- |
 | `todo-app` (golden) | `npm run acceptance` | bundled sample app | `golden/` | The deterministic, CI-backed end-to-end run. Capture, three callouts, three exports, all checks. |
 | `saucedemo` | `npm run example:saucedemo` | live saucedemo.com | `saucedemo/` | Capturing a real third-party checkout flow. Callouts auto-anchor to the site's own `#id` / `data-test` elements. |
+| `toolshop` | `npm run example:toolshop` | live practicesoftwaretesting.com | `toolshop/` | A browse-to-cart flow on an Angular store. Auto-anchors to the add-to-cart button, the checkout button, and the cart total. |
 
 The `todo-app` example uses the bundled app, so it reproduces byte-for-byte and runs in CI.
 The `saucedemo` example points at a live site: the committed artifacts are a snapshot, and a
