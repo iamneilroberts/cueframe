@@ -24,6 +24,14 @@ npm run acceptance    # end-to-end §6 gate; regenerates examples/golden/
 All three must be green before a change lands. CI (`.github/workflows/ci.yml`) runs typecheck,
 build, and tests on every push.
 
+The live-site showcase examples are regenerated separately (they need network access and are
+not part of CI):
+
+```
+npm run example:saucedemo   # regenerates examples/saucedemo/ from its scenario
+npm run example:toolshop    # regenerates examples/toolshop/
+```
+
 ## Where things live
 
 | Area | Path | Notes |
@@ -34,7 +42,10 @@ build, and tests on every push.
 | Player | `src/player/` | `timeline.ts` (pure model), `runtime.ts` (self-contained browser JS), `template.ts`. |
 | Exporters | `src/export/` | `html.ts` (inline everything), `video.ts` (headless player → ffmpeg). |
 | CLI | `src/cli.ts` | The four verbs. |
+| Acceptance gate | `src/acceptance.ts` | The §6 end-to-end gate; also generates `examples/golden/`. |
+| Example builder | `src/examples.ts` | Builds the live-site showcase examples (`npm run example:*`). |
 | Sample app | `examples/todo-app/` | The canonical capture target; ships an embedded capture scenario. |
+| Examples | `examples/` | `golden/` (bundled, CI), `saucedemo/` + `toolshop/` (live sites); see `examples/README.md`. |
 | Plugin | `plugin/` | Claude Code skills + slash commands. |
 
 ## Ground rules

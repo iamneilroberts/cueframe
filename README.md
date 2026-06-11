@@ -121,6 +121,23 @@ See [`docs/walkthrough.md`](docs/walkthrough.md) for an annotated tour of the go
 
 ---
 
+## Examples
+
+Three worked examples ship in [`examples/`](examples/), each captured end to end. The bundled
+todo app (`examples/golden/`) is deterministic and runs in CI. The other two capture live
+third-party sites, with callouts auto-anchored to each site's own elements.
+
+- **SauceDemo, a checkout funnel** (`npm run example:saucedemo`) is the reel at the top of
+  this page.
+- **Toolshop, browse to cart** (`npm run example:toolshop`):
+
+![Toolshop browse-to-cart reel: open a product, add it to the cart, land on the cart with callouts on the add-to-cart button, the checkout button, and the running total](examples/toolshop/demo.gif)
+
+Per-example walkthroughs (frames, callouts, and the anchors they resolved to) plus a "use it on
+your own app" scenario are in [`examples/README.md`](examples/README.md).
+
+---
+
 ## The `spec.json` contract
 
 `spec.json` is the single source of truth that flows through all three acts. It is defined
@@ -183,28 +200,17 @@ src/callout/   Callout edit library: NL frame/anchor/copy resolution + immutable
 src/player/    Framework-light web player (timeline + self-contained runtime)
 src/export/    Exporters: self-contained HTML, MP4, GIF
 src/cli.ts     The cueframe CLI (capture / play / export / validate)
-src/acceptance.ts  One-command acceptance gate + golden-example generator
+src/acceptance.ts  Acceptance gate + golden-example generator (npm run acceptance)
+src/examples.ts    Builder for the live-site showcase examples (npm run example:*)
 examples/todo-app/  The bundled sample capture target (npm run sample)
-examples/golden/    The committed golden example (regenerable via npm run acceptance)
+examples/golden/    The deterministic golden example (npm run acceptance)
+examples/saucedemo/ Live checkout-flow showcase (npm run example:saucedemo)
+examples/toolshop/  Live browse-to-cart showcase (npm run example:toolshop)
 plugin/        Claude Code plugin: capture + callout skills, slash commands
 ```
 
 Run `npm test` (unit and browser tests), `npm run typecheck`, and `npm run acceptance` (the
 end-to-end gate). See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
----
-
-## Examples
-
-Two worked examples ship in [`examples/`](examples/), each capture-to-export end to end:
-
-- **`examples/golden/`** is the bundled todo app. It is deterministic and runs in CI
-  (`npm run acceptance`).
-- **`examples/saucedemo/`** captures a live checkout flow on saucedemo.com, with callouts
-  auto-anchored to the site's own `#id` and `data-test` elements (`npm run example:saucedemo`).
-
-See [`examples/README.md`](examples/README.md) for a table and a "use it on your own app"
-scenario.
 
 ## Limitations
 
