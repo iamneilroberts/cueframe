@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+coverage/
+
+# Capture/export scratch output (the committed golden example lives under examples/)
+/tmp-capture/
+/.cueframe-tmp/

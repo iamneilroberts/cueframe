@@ -1,0 +1,38 @@
+{
+  "name": "cueframe",
+  "version": "0.1.0",
+  "description": "Conversational demo creator: capture a workflow, narrate callouts in plain English, export a shareable reel (HTML/MP4/GIF).",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "cueframe": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "sample": "node scripts/serve.mjs examples/todo-app 5173",
+    "acceptance": "node dist/acceptance.js",
+    "cli": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "playwright": "^1.60.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}
