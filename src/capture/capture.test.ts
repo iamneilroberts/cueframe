@@ -106,4 +106,16 @@ describe("capture (integration, sample app)", () => {
     expect(validateSpec(onDisk).valid).toBe(true);
     expect(goldenFrames(onDisk).length).toBe(golden.length);
   }, 120_000);
+
+  it("honors specFile so `--out dir/name.json` writes that filename", async () => {
+    const dir2 = await mkdtemp(join(tmpdir(), "cueframe-capture-out-"));
+    try {
+      const result = await capture({ url: baseUrl, outDir: dir2, specFile: "myspec.json", headless: true });
+      expect(result.specPath.endsWith("myspec.json")).toBe(true);
+      const onDisk = JSON.parse(await readFile(result.specPath, "utf8"));
+      expect(validateSpec(onDisk).valid).toBe(true);
+    } finally {
+      await rm(dir2, { recursive: true, force: true });
+    }
+  }, 120_000);
 });

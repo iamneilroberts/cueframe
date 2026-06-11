@@ -34,6 +34,8 @@ export interface CaptureOptions {
   url: string;
   /** spec.json written here; screenshots under <outDir>/frames/. */
   outDir: string;
+  /** Basename of the spec file written into outDir. Default "spec.json". */
+  specFile?: string;
   /** Explicit scenario override. Beats the page-embedded one. */
   scenario?: Scenario;
   /** Default 1280x800. */
@@ -174,7 +176,7 @@ export async function capture(opts: CaptureOptions): Promise<CaptureResult> {
   const viewport = opts.viewport ?? DEFAULT_VIEWPORT;
   const headless = opts.headless ?? true;
   const framesDir = join(opts.outDir, "frames");
-  const specPath = join(opts.outDir, "spec.json");
+  const specPath = join(opts.outDir, opts.specFile ?? "spec.json");
 
   await mkdir(framesDir, { recursive: true });
 

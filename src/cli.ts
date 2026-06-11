@@ -69,7 +69,9 @@ async function cmdCapture(p: Parsed): Promise<number> {
     return 2;
   }
   const out = typeof p.flags.out === "string" ? p.flags.out : "spec.json";
-  const outDir = dirname(resolve(out));
+  const outAbs = resolve(out);
+  const outDir = dirname(outAbs);
+  const specFile = basename(outAbs);
   let scenario: Scenario | undefined;
   if (typeof p.flags.scenario === "string") {
     let raw: string;
@@ -89,6 +91,7 @@ async function cmdCapture(p: Parsed): Promise<number> {
   const result = await capture({
     url,
     outDir,
+    specFile,
     scenario,
     viewport: parseViewport(p.flags.viewport),
     title: typeof p.flags.title === "string" ? p.flags.title : undefined,
