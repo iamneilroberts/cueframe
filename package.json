@@ -24,6 +24,7 @@
     "test:watch": "vitest",
     "sample": "node scripts/serve.mjs examples/todo-app 5173",
     "acceptance": "node dist/acceptance.js",
+    "example:saucedemo": "node dist/examples.js saucedemo",
     "cli": "node dist/cli.js",
     "prepublishOnly": "npm run build"
   },

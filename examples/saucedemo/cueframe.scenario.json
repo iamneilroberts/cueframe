@@ -1,0 +1,30 @@
+{
+  "name": "SauceDemo checkout funnel",
+  "steps": [
+    { "action": "waitFor", "selector": "[data-test=\"username\"]" },
+    { "action": "snapshot", "caption": "The Swag Labs sign-in screen." },
+    { "action": "fill", "selector": "[data-test=\"username\"]", "value": "standard_user" },
+    { "action": "fill", "selector": "[data-test=\"password\"]", "value": "secret_sauce" },
+    { "action": "click", "selector": "[data-test=\"login-button\"]", "label": "Login" },
+    { "action": "waitFor", "selector": "[data-test=\"inventory-list\"]" },
+    { "action": "snapshot", "caption": "The product catalog loads after sign-in." },
+    { "action": "click", "selector": "[data-test=\"add-to-cart-sauce-labs-backpack\"]", "label": "Add to cart" },
+    { "action": "waitFor", "selector": "[data-test=\"shopping-cart-badge\"]" },
+    { "action": "snapshot", "caption": "Added the Sauce Labs Backpack to the cart." },
+    { "action": "click", "selector": "[data-test=\"shopping-cart-link\"]", "label": "Cart" },
+    { "action": "waitFor", "selector": "[data-test=\"checkout\"]" },
+    { "action": "snapshot", "caption": "Reviewing the cart before checkout." },
+    { "action": "click", "selector": "[data-test=\"checkout\"]", "label": "Checkout" },
+    { "action": "waitFor", "selector": "[data-test=\"firstName\"]" },
+    { "action": "snapshot", "caption": "Entering shipping information at checkout." },
+    { "action": "fill", "selector": "[data-test=\"firstName\"]", "value": "Ada" },
+    { "action": "fill", "selector": "[data-test=\"lastName\"]", "value": "Lovelace" },
+    { "action": "fill", "selector": "[data-test=\"postalCode\"]", "value": "94016" },
+    { "action": "click", "selector": "[data-test=\"continue\"]", "label": "Continue" },
+    { "action": "waitFor", "selector": "[data-test=\"finish\"]" },
+    { "action": "snapshot", "caption": "The order summary shows the items and the total." },
+    { "action": "click", "selector": "[data-test=\"finish\"]", "label": "Finish" },
+    { "action": "waitFor", "selector": "[data-test=\"complete-header\"]" },
+    { "action": "snapshot", "caption": "Order confirmed. Thank you for your order." }
+  ]
+}

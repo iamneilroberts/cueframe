@@ -1,0 +1,1164 @@
+{
+  "meta": {
+    "title": "SauceDemo checkout",
+    "app": "saucedemo.com (Swag Labs)",
+    "createdAt": "2026-06-11T03:58:19.035Z",
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    }
+  },
+  "frames": [
+    {
+      "id": "f1",
+      "n": 1,
+      "kind": "golden",
+      "img": "frames/f1.png",
+      "caption": "The Swag Labs sign-in screen.",
+      "axDigest": "textbox \"Username\"",
+      "boxes": [
+        {
+          "selector": "#login-button",
+          "rect": {
+            "x": 494,
+            "y": 302,
+            "w": 292,
+            "h": 49
+          },
+          "label": "Login"
+        },
+        {
+          "selector": "#login_button_container",
+          "rect": {
+            "x": 494,
+            "y": 124,
+            "w": 292,
+            "h": 242
+          }
+        },
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Swag LabsAccepted usernames are:standard_userlocked_out_userproblem_userperforma"
+        },
+        {
+          "selector": "[data-test=\"login-container\"]",
+          "rect": {
+            "x": 0,
+            "y": 108,
+            "w": 1280,
+            "h": 543
+          },
+          "label": "Accepted usernames are:standard_userlocked_out_userproblem_userperformance_glitc"
+        },
+        {
+          "selector": "[data-test=\"login-credentials-container\"]",
+          "rect": {
+            "x": 0,
+            "y": 397,
+            "w": 1280,
+            "h": 254
+          },
+          "label": "Accepted usernames are:standard_userlocked_out_userproblem_userperformance_glitc"
+        },
+        {
+          "selector": "#login_credentials",
+          "rect": {
+            "x": 250,
+            "y": 413,
+            "w": 390,
+            "h": 207
+          },
+          "label": "Accepted usernames are:standard_userlocked_out_userproblem_userperformance_glitc"
+        },
+        {
+          "selector": "[data-test=\"login-password\"]",
+          "rect": {
+            "x": 640,
+            "y": 413,
+            "w": 390,
+            "h": 207
+          },
+          "label": "Password for all users:secret_sauce"
+        },
+        {
+          "selector": "#user-name",
+          "rect": {
+            "x": 494,
+            "y": 154,
+            "w": 292,
+            "h": 39
+          },
+          "label": "Username"
+        },
+        {
+          "selector": "#password",
+          "rect": {
+            "x": 494,
+            "y": 208,
+            "w": 292,
+            "h": 39
+          },
+          "label": "Password"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "n": 2,
+      "kind": "golden",
+      "img": "frames/f2.png",
+      "caption": "The product catalog loads after sign-in.",
+      "axDigest": "button \"Open Menu\"; button \"Close Menu\"; button \"Add to cart\"; link \"All Items\"; link \"About\"; link \"Logout\"; link \"Reset App State\"; link \"Sauce Labs Backpack\"; link \"Sauce Labs Bike Light\"; link \"Sauce Labs Bolt T-Shirt\"; link \"Sauce Labs Fleece Jacket\"; link \"Sauce Labs Onesie\"; link \"Test.allTheThings() T-Shirt (Red)\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#add-to-cart-sauce-labs-backpack",
+          "rect": {
+            "x": 420,
+            "y": 339,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#add-to-cart-sauce-labs-bike-light",
+          "rect": {
+            "x": 975,
+            "y": 339,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#add-to-cart-sauce-labs-bolt-t-shirt",
+          "rect": {
+            "x": 420,
+            "y": 591,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#add-to-cart-sauce-labs-fleece-jacket",
+          "rect": {
+            "x": 975,
+            "y": 591,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 970
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsProductsName (A t"
+        },
+        {
+          "selector": "[id] >> nth=13",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 826
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsProductsName (A t"
+        },
+        {
+          "selector": "[data-test=\"inventory-list\"]",
+          "rect": {
+            "x": 95,
+            "y": 154,
+            "w": 1090,
+            "h": 786
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsProductsName (A t"
+        },
+        {
+          "selector": "[data-test] >> nth=15",
+          "rect": {
+            "x": 110,
+            "y": 154,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "[data-test] >> nth=24",
+          "rect": {
+            "x": 665,
+            "y": 154,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Bike LightA red light isn't the desired state in testing but it sure "
+        },
+        {
+          "selector": "[data-test] >> nth=33",
+          "rect": {
+            "x": 110,
+            "y": 406,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Bolt T-ShirtGet your testing superhero on with the Sauce Labs bolt T-"
+        },
+        {
+          "selector": "[data-test] >> nth=42",
+          "rect": {
+            "x": 665,
+            "y": 406,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Fleece JacketIt's not every day that you come across a midweight quar"
+        },
+        {
+          "selector": "[data-test] >> nth=51",
+          "rect": {
+            "x": 110,
+            "y": 658,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs OnesieRib snap infant onesie for the junior automation engineer in de"
+        },
+        {
+          "selector": "[data-test] >> nth=60",
+          "rect": {
+            "x": 665,
+            "y": 658,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Test.allTheThings() T-Shirt (Red)This classic Sauce Labs t-shirt is perfect to w"
+        },
+        {
+          "selector": "[data-test] >> nth=18",
+          "rect": {
+            "x": 261,
+            "y": 155,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "n": 3,
+      "kind": "golden",
+      "img": "frames/f3.png",
+      "caption": "Added the Sauce Labs Backpack to the cart.",
+      "axDigest": "button \"Open Menu\"; button \"Remove\"; button \"Add to cart\"; link \"Sauce Labs Backpack\"; link \"Sauce Labs Bike Light\"; link \"Sauce Labs Bolt T-Shirt\"; link \"Sauce Labs Fleece Jacket\"; link \"Sauce Labs Onesie\"; link \"Test.allTheThings() T-Shirt (Red)\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#add-to-cart-sauce-labs-bike-light",
+          "rect": {
+            "x": 975,
+            "y": 339,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#add-to-cart-sauce-labs-bolt-t-shirt",
+          "rect": {
+            "x": 420,
+            "y": 591,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#add-to-cart-sauce-labs-fleece-jacket",
+          "rect": {
+            "x": 975,
+            "y": 591,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Add to cart"
+        },
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 970
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1ProductsName (A "
+        },
+        {
+          "selector": "[id] >> nth=13",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 826
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1ProductsName (A "
+        },
+        {
+          "selector": "[data-test=\"inventory-list\"]",
+          "rect": {
+            "x": 95,
+            "y": 154,
+            "w": 1090,
+            "h": 786
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1ProductsName (A "
+        },
+        {
+          "selector": "[data-test] >> nth=16",
+          "rect": {
+            "x": 110,
+            "y": 154,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "[data-test] >> nth=25",
+          "rect": {
+            "x": 665,
+            "y": 154,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Bike LightA red light isn't the desired state in testing but it sure "
+        },
+        {
+          "selector": "[data-test] >> nth=34",
+          "rect": {
+            "x": 110,
+            "y": 406,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Bolt T-ShirtGet your testing superhero on with the Sauce Labs bolt T-"
+        },
+        {
+          "selector": "[data-test] >> nth=43",
+          "rect": {
+            "x": 665,
+            "y": 406,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs Fleece JacketIt's not every day that you come across a midweight quar"
+        },
+        {
+          "selector": "[data-test] >> nth=52",
+          "rect": {
+            "x": 110,
+            "y": 658,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Sauce Labs OnesieRib snap infant onesie for the junior automation engineer in de"
+        },
+        {
+          "selector": "[data-test] >> nth=61",
+          "rect": {
+            "x": 665,
+            "y": 658,
+            "w": 505,
+            "h": 240
+          },
+          "label": "Test.allTheThings() T-Shirt (Red)This classic Sauce Labs t-shirt is perfect to w"
+        },
+        {
+          "selector": "[data-test] >> nth=19",
+          "rect": {
+            "x": 261,
+            "y": 155,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack tha"
+        },
+        {
+          "selector": "[data-test] >> nth=28",
+          "rect": {
+            "x": 816,
+            "y": 155,
+            "w": 353,
+            "h": 238
+          },
+          "label": "Sauce Labs Bike LightA red light isn't the desired state in testing but it sure "
+        }
+      ]
+    },
+    {
+      "id": "f4",
+      "n": 4,
+      "kind": "golden",
+      "img": "frames/f4.png",
+      "caption": "Reviewing the cart before checkout.",
+      "axDigest": "button \"Open Menu\"; button \"Remove\"; button \"Continue Shopping\"; button \"Checkout\"; link \"Sauce Labs Backpack\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Your CartQTYDesc"
+        },
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 546
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Your CartQTYDesc"
+        },
+        {
+          "selector": "#cart_contents_container",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 432
+          },
+          "label": "QTYDescription1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlin"
+        },
+        {
+          "selector": "[data-test=\"cart-list\"]",
+          "rect": {
+            "x": 15,
+            "y": 114,
+            "w": 1250,
+            "h": 238
+          },
+          "label": "QTYDescription1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlin"
+        },
+        {
+          "selector": "[data-test=\"inventory-item\"]",
+          "rect": {
+            "x": 15,
+            "y": 178,
+            "w": 1250,
+            "h": 174
+          },
+          "label": "1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack th"
+        },
+        {
+          "selector": "[data-test=\"footer\"]",
+          "rect": {
+            "x": 0,
+            "y": 660,
+            "w": 1280,
+            "h": 140
+          },
+          "label": "TwitterFacebookLinkedIn© 2026 Sauce Labs. All Rights Reserved. Terms of Service "
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Your Cart"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "Your Cart"
+        },
+        {
+          "selector": "[data-test=\"inventory-item-desc\"]",
+          "rect": {
+            "x": 90,
+            "y": 229,
+            "w": 866,
+            "h": 40
+          },
+          "label": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromis"
+        },
+        {
+          "selector": "#item_4_title_link",
+          "rect": {
+            "x": 90,
+            "y": 199,
+            "w": 1154,
+            "h": 20
+          },
+          "label": "Sauce Labs Backpack"
+        },
+        {
+          "selector": "[data-test=\"footer-copy\"]",
+          "rect": {
+            "x": 50,
+            "y": 740,
+            "w": 472,
+            "h": 20
+          },
+          "label": "© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"
+        },
+        {
+          "selector": "#continue-shopping",
+          "rect": {
+            "x": 15,
+            "y": 412,
+            "w": 220,
+            "h": 34
+          },
+          "label": "Continue Shopping"
+        },
+        {
+          "selector": "#checkout",
+          "rect": {
+            "x": 1045,
+            "y": 412,
+            "w": 220,
+            "h": 34
+          },
+          "label": "Checkout"
+        },
+        {
+          "selector": "#remove-sauce-labs-backpack",
+          "rect": {
+            "x": 1084,
+            "y": 297,
+            "w": 160,
+            "h": 34
+          },
+          "label": "Remove"
+        },
+        {
+          "selector": "[data-test=\"cart-quantity-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 114,
+            "w": 80,
+            "h": 64
+          },
+          "label": "QTY"
+        }
+      ]
+    },
+    {
+      "id": "f5",
+      "n": 5,
+      "kind": "golden",
+      "img": "frames/f5.png",
+      "caption": "Entering shipping information at checkout.",
+      "axDigest": "button \"Open Menu\"; button \"Cancel\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; textbox \"First Name\"; textbox \"Last Name\"; textbox \"Zip/Postal Code\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Your I"
+        },
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 710
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Your I"
+        },
+        {
+          "selector": "#checkout_info_container",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 566
+          },
+          "label": "Cancel"
+        },
+        {
+          "selector": "[data-test=\"footer\"]",
+          "rect": {
+            "x": 0,
+            "y": 710,
+            "w": 1280,
+            "h": 140
+          },
+          "label": "TwitterFacebookLinkedIn© 2026 Sauce Labs. All Rights Reserved. Terms of Service "
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Your I"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "Checkout: Your Information"
+        },
+        {
+          "selector": "#first-name",
+          "rect": {
+            "x": 450,
+            "y": 255,
+            "w": 380,
+            "h": 39
+          },
+          "label": "First Name"
+        },
+        {
+          "selector": "#last-name",
+          "rect": {
+            "x": 450,
+            "y": 309,
+            "w": 380,
+            "h": 39
+          },
+          "label": "Last Name"
+        },
+        {
+          "selector": "#postal-code",
+          "rect": {
+            "x": 450,
+            "y": 363,
+            "w": 380,
+            "h": 39
+          },
+          "label": "Zip/Postal Code"
+        },
+        {
+          "selector": "[data-test=\"title\"]",
+          "rect": {
+            "x": 20,
+            "y": 61,
+            "w": 233,
+            "h": 48
+          },
+          "label": "Checkout: Your Information"
+        },
+        {
+          "selector": "[data-test=\"footer-copy\"]",
+          "rect": {
+            "x": 50,
+            "y": 790,
+            "w": 472,
+            "h": 20
+          },
+          "label": "© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"
+        },
+        {
+          "selector": "#cancel",
+          "rect": {
+            "x": 15,
+            "y": 599,
+            "w": 220,
+            "h": 41
+          },
+          "label": "Cancel"
+        },
+        {
+          "selector": "#continue",
+          "rect": {
+            "x": 1045,
+            "y": 599,
+            "w": 220,
+            "h": 41
+          },
+          "label": "Continue"
+        },
+        {
+          "selector": "#shopping_cart_container",
+          "rect": {
+            "x": 1220,
+            "y": 10,
+            "w": 40,
+            "h": 40
+          },
+          "label": "1"
+        },
+        {
+          "selector": "[data-test=\"social-twitter\"]",
+          "rect": {
+            "x": 50,
+            "y": 744,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Twitter"
+        }
+      ]
+    },
+    {
+      "id": "f6",
+      "n": 6,
+      "kind": "golden",
+      "img": "frames/f6.png",
+      "caption": "The order summary shows the items and the total.",
+      "axDigest": "button \"Open Menu\"; button \"Cancel\"; button \"Finish\"; link \"Sauce Labs Backpack\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 816
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Overvi"
+        },
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Overvi"
+        },
+        {
+          "selector": "#checkout_summary_container",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 702
+          },
+          "label": "QTYDescription1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlin"
+        },
+        {
+          "selector": "[data-test=\"cart-list\"]",
+          "rect": {
+            "x": 15,
+            "y": 114,
+            "w": 1250,
+            "h": 238
+          },
+          "label": "QTYDescription1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlin"
+        },
+        {
+          "selector": "[data-test=\"inventory-item\"]",
+          "rect": {
+            "x": 15,
+            "y": 178,
+            "w": 1250,
+            "h": 174
+          },
+          "label": "1Sauce Labs Backpackcarry.allTheThings() with the sleek, streamlined Sly Pack th"
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1Checkout: Overvi"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs1"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "Checkout: Overview"
+        },
+        {
+          "selector": "[data-test=\"payment-info-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 372,
+            "w": 1250,
+            "h": 44
+          },
+          "label": "Payment Information:"
+        },
+        {
+          "selector": "[data-test=\"shipping-info-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 441,
+            "w": 1250,
+            "h": 44
+          },
+          "label": "Shipping Information:"
+        },
+        {
+          "selector": "[data-test=\"total-info-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 510,
+            "w": 1250,
+            "h": 44
+          },
+          "label": "Price Total"
+        },
+        {
+          "selector": "[data-test=\"total-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 594,
+            "w": 1250,
+            "h": 40
+          },
+          "label": "Total: $32.39"
+        },
+        {
+          "selector": "[data-test=\"inventory-item-desc\"]",
+          "rect": {
+            "x": 90,
+            "y": 229,
+            "w": 866,
+            "h": 40
+          },
+          "label": "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromis"
+        },
+        {
+          "selector": "[data-test=\"payment-info-value\"]",
+          "rect": {
+            "x": 15,
+            "y": 416,
+            "w": 1250,
+            "h": 25
+          },
+          "label": "SauceCard #31337"
+        },
+        {
+          "selector": "[data-test=\"shipping-info-value\"]",
+          "rect": {
+            "x": 15,
+            "y": 485,
+            "w": 1250,
+            "h": 25
+          },
+          "label": "Free Pony Express Delivery!"
+        },
+        {
+          "selector": "[data-test=\"subtotal-label\"]",
+          "rect": {
+            "x": 15,
+            "y": 554,
+            "w": 1250,
+            "h": 20
+          },
+          "label": "Item total: $29.99"
+        }
+      ]
+    },
+    {
+      "id": "f7",
+      "n": 7,
+      "kind": "golden",
+      "img": "frames/f7.png",
+      "caption": "Order confirmed. Thank you for your order.",
+      "axDigest": "heading \"Thank you for your order!\"; button \"Open Menu\"; button \"Back Home\"; link \"Twitter\"; link \"Facebook\"; link \"LinkedIn\"; listitem \"Twitter\"; listitem \"Facebook\"; listitem \"LinkedIn\"",
+      "boxes": [
+        {
+          "selector": "#root",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 800
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsCheckout: Complet"
+        },
+        {
+          "selector": "#contents_wrapper",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 590
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsCheckout: Complet"
+        },
+        {
+          "selector": "#checkout_complete_container",
+          "rect": {
+            "x": 0,
+            "y": 114,
+            "w": 1280,
+            "h": 476
+          },
+          "label": "Thank you for your order!Your order has been dispatched, and will arrive just as"
+        },
+        {
+          "selector": "[data-test=\"footer\"]",
+          "rect": {
+            "x": 0,
+            "y": 660,
+            "w": 1280,
+            "h": 140
+          },
+          "label": "TwitterFacebookLinkedIn© 2026 Sauce Labs. All Rights Reserved. Terms of Service "
+        },
+        {
+          "selector": "#header_container",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 114
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag LabsCheckout: Complet"
+        },
+        {
+          "selector": "[data-test=\"primary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1280,
+            "h": 57
+          },
+          "label": "Open MenuAll ItemsAboutLogoutReset App StateClose MenuSwag Labs"
+        },
+        {
+          "selector": "[data-test=\"secondary-header\"]",
+          "rect": {
+            "x": 0,
+            "y": 57,
+            "w": 1280,
+            "h": 56
+          },
+          "label": "Checkout: Complete!"
+        },
+        {
+          "selector": "[data-test=\"complete-text\"]",
+          "rect": {
+            "x": 415,
+            "y": 348,
+            "w": 450,
+            "h": 40
+          },
+          "label": "Your order has been dispatched, and will arrive just as fast as the pony can get"
+        },
+        {
+          "selector": "[data-test=\"complete-header\"]",
+          "rect": {
+            "x": 465,
+            "y": 296,
+            "w": 350,
+            "h": 32
+          },
+          "label": "Thank you for your order!"
+        },
+        {
+          "selector": "[data-test=\"footer-copy\"]",
+          "rect": {
+            "x": 50,
+            "y": 740,
+            "w": 472,
+            "h": 20
+          },
+          "label": "© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"
+        },
+        {
+          "selector": "[data-test=\"title\"]",
+          "rect": {
+            "x": 20,
+            "y": 61,
+            "w": 178,
+            "h": 48
+          },
+          "label": "Checkout: Complete!"
+        },
+        {
+          "selector": "#back-to-products",
+          "rect": {
+            "x": 560,
+            "y": 458,
+            "w": 160,
+            "h": 32
+          },
+          "label": "Back Home"
+        },
+        {
+          "selector": "[data-test=\"social-twitter\"]",
+          "rect": {
+            "x": 50,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Twitter"
+        },
+        {
+          "selector": "[data-test=\"social-facebook\"]",
+          "rect": {
+            "x": 100,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "Facebook"
+        },
+        {
+          "selector": "[data-test=\"social-linkedin\"]",
+          "rect": {
+            "x": 150,
+            "y": 694,
+            "w": 30,
+            "h": 30
+          },
+          "label": "LinkedIn"
+        },
+        {
+          "selector": "#react-burger-menu-btn",
+          "rect": {
+            "x": 20,
+            "y": 20,
+            "w": 20,
+            "h": 20
+          },
+          "label": "Open Menu"
+        }
+      ]
+    }
+  ],
+  "callouts": [
+    {
+      "id": "c1",
+      "frame": "f2",
+      "title": "Add to the cart without leaving the page",
+      "anchor": {
+        "selector": "#add-to-cart-sauce-labs-backpack"
+      },
+      "body": "The product catalog loads after sign-in.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c2",
+      "frame": "f4",
+      "title": "Review the cart, then check out",
+      "anchor": {
+        "selector": "#checkout"
+      },
+      "body": "Reviewing the cart before checkout.",
+      "dwellMs": 3000
+    },
+    {
+      "id": "c3",
+      "frame": "f7",
+      "title": "Order confirmed in three steps",
+      "anchor": {
+        "selector": "#checkout_complete_container"
+      },
+      "body": "Order confirmed. Thank you for your order.",
+      "dwellMs": 3000
+    }
+  ]
+}
