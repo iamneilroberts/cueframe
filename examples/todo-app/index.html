@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cueframe Sample — Todo</title>
+<style>
+  :root {
+    --bg: #0f1729;
+    --panel: #ffffff;
+    --ink: #1b2540;
+    --muted: #6b7795;
+    --line: #e4e8f3;
+    --accent: #3b6cf6;
+    --accent-ink: #ffffff;
+    --done: #9aa6c4;
+    --danger: #e2533b;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(160deg, #0f1729 0%, #1b2a52 100%);
+    color: var(--ink);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap {
+    max-width: 560px;
+    margin: 56px auto;
+    padding: 0 20px;
+  }
+  .card {
+    background: var(--panel);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(8, 16, 40, 0.45);
+    overflow: hidden;
+  }
+  header {
+    padding: 28px 28px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .compose {
+    display: flex;
+    gap: 10px;
+    padding: 20px 28px;
+  }
+  .compose input[type="text"] {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .compose input[type="text"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 108, 246, 0.18);
+  }
+  .compose button {
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: filter .15s;
+  }
+  .compose button:hover { filter: brightness(1.06); }
+  ul.list {
+    list-style: none;
+    margin: 0;
+    padding: 0 12px;
+    min-height: 80px;
+  }
+  li.todo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    transition: background .12s;
+  }
+  li.todo:hover { background: #f6f8fe; }
+  li.todo + li.todo { border-top: 1px solid var(--line); }
+  li.todo input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex: none;
+  }
+  li.todo .text {
+    flex: 1;
+    font-size: 16px;
+  }
+  li.todo.completed .text {
+    color: var(--done);
+    text-decoration: line-through;
+  }
+  li.todo .delete {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+  li.todo .delete:hover { color: var(--danger); background: #fbeae6; }
+  .empty {
+    padding: 28px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 28px 24px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .count {
+    color: var(--muted);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .filters {
+    display: flex;
+    gap: 6px;
+  }
+  .filters button {
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .filters button.active {
+    color: var(--accent);
+    border-color: rgba(59, 108, 246, 0.4);
+    background: rgba(59, 108, 246, 0.08);
+  }
+  .clear {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+  .clear:hover { color: var(--danger); }
+  .clear[disabled] { opacity: .4; cursor: default; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" data-app>
+      <header>
+        <h1 data-heading>Today</h1>
+        <p>A tiny todo list for the Cueframe demo.</p>
+      </header>
+
+      <div class="compose">
+        <input type="text" data-new-todo placeholder="What needs doing?" aria-label="New todo" autocomplete="off" />
+        <button type="button" data-add>Add</button>
+      </div>
+
+      <ul class="list" data-todo-list aria-label="Todo list"></ul>
+
+      <footer>
+        <span class="count" data-count>0 items left</span>
+        <div class="filters" role="group" aria-label="Filter todos">
+          <button type="button" data-filter="all" class="active">All</button>
+          <button type="button" data-filter="active">Active</button>
+          <button type="button" data-filter="completed">Completed</button>
+        </div>
+        <button type="button" class="clear" data-clear-completed disabled>Clear completed</button>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    /** @type {{id:number,text:string,done:boolean}[]} */
+    var todos = [];
+    var filter = "all";
+    var nextId = 1;
+
+    var listEl = document.querySelector("[data-todo-list]");
+    var inputEl = document.querySelector("[data-new-todo]");
+    var addEl = document.querySelector("[data-add]");
+    var countEl = document.querySelector("[data-count]");
+    var clearEl = document.querySelector("[data-clear-completed]");
+    var filterEls = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+
+    function visible() {
+      if (filter === "active") return todos.filter(function (t) { return !t.done; });
+      if (filter === "completed") return todos.filter(function (t) { return t.done; });
+      return todos.slice();
+    }
+
+    function render() {
+      listEl.innerHTML = "";
+      var rows = visible();
+      if (rows.length === 0) {
+        var li = document.createElement("li");
+        li.className = "empty";
+        li.setAttribute("data-empty", "");
+        li.textContent = todos.length === 0
+          ? "Nothing here yet. Add your first todo."
+          : "No todos in this view.";
+        listEl.appendChild(li);
+      } else {
+        rows.forEach(function (t) {
+          var li = document.createElement("li");
+          li.className = "todo" + (t.done ? " completed" : "");
+          li.setAttribute("data-todo", String(t.id));
+
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.checked = t.done;
+          cb.setAttribute("data-toggle", "");
+          cb.setAttribute("aria-label", "Mark \"" + t.text + "\" complete");
+          cb.addEventListener("change", function () { toggle(t.id); });
+
+          var span = document.createElement("span");
+          span.className = "text";
+          span.setAttribute("data-text", "");
+          span.textContent = t.text;
+
+          var del = document.createElement("button");
+          del.type = "button";
+          del.className = "delete";
+          del.setAttribute("data-delete", "");
+          del.setAttribute("aria-label", "Delete \"" + t.text + "\"");
+          del.textContent = "×";
+          del.addEventListener("click", function () { remove(t.id); });
+
+          li.appendChild(cb);
+          li.appendChild(span);
+          li.appendChild(del);
+          listEl.appendChild(li);
+        });
+      }
+
+      var left = todos.filter(function (t) { return !t.done; }).length;
+      countEl.textContent = left + (left === 1 ? " item left" : " items left");
+
+      var anyDone = todos.some(function (t) { return t.done; });
+      clearEl.disabled = !anyDone;
+
+      filterEls.forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-filter") === filter);
+      });
+    }
+
+    function add(text) {
+      var trimmed = (text || "").trim();
+      if (!trimmed) return;
+      todos.push({ id: nextId++, text: trimmed, done: false });
+      inputEl.value = "";
+      render();
+    }
+
+    function toggle(id) {
+      var t = todos.find(function (x) { return x.id === id; });
+      if (t) { t.done = !t.done; render(); }
+    }
+
+    function remove(id) {
+      todos = todos.filter(function (x) { return x.id !== id; });
+      render();
+    }
+
+    function clearCompleted() {
+      todos = todos.filter(function (t) { return !t.done; });
+      render();
+    }
+
+    function setFilter(f) {
+      filter = f;
+      render();
+    }
+
+    addEl.addEventListener("click", function () { add(inputEl.value); });
+    inputEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") add(inputEl.value);
+    });
+    clearEl.addEventListener("click", clearCompleted);
+    filterEls.forEach(function (b) {
+      b.addEventListener("click", function () { setFilter(b.getAttribute("data-filter")); });
+    });
+
+    render();
+
+    // --- Cueframe capture scenario (read by `npx cueframe capture <url>`) -------------
+    // Keep this byte-for-byte consistent with examples/todo-app/cueframe.scenario.json.
+    window.__CUEFRAME_SCENARIO__ = {
+      "name": "Todo basics",
+      "steps": [
+        { "action": "goto", "caption": "The todo app opens to an empty list." },
+        { "action": "fill", "selector": "[data-new-todo]", "value": "Buy groceries", "caption": "Typing the first todo into the input.", "label": "New todo field" },
+        { "action": "click", "selector": "[data-add]", "caption": "First todo added to the list.", "label": "Add button" },
+        { "action": "fill", "selector": "[data-new-todo]", "value": "Walk the dog" },
+        { "action": "click", "selector": "[data-add]", "caption": "Second todo added, two items left.", "label": "Add button" },
+        { "action": "click", "selector": "[data-todo] [data-toggle]", "caption": "First todo marked complete.", "label": "Toggle complete" },
+        { "action": "click", "selector": "[data-filter=\"active\"]", "caption": "Filtered to active todos only.", "label": "Active filter" },
+        { "action": "click", "selector": "[data-filter=\"all\"]" },
+        { "action": "click", "selector": "[data-clear-completed]", "caption": "Cleared completed todos, one item remains.", "label": "Clear completed" }
+      ]
+    };
+  })();
+  </script>
+</body>
+</html>

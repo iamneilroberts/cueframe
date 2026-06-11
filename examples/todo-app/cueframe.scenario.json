@@ -1,0 +1,14 @@
+{
+  "name": "Todo basics",
+  "steps": [
+    { "action": "goto", "caption": "The todo app opens to an empty list." },
+    { "action": "fill", "selector": "[data-new-todo]", "value": "Buy groceries", "caption": "Typing the first todo into the input.", "label": "New todo field" },
+    { "action": "click", "selector": "[data-add]", "caption": "First todo added to the list.", "label": "Add button" },
+    { "action": "fill", "selector": "[data-new-todo]", "value": "Walk the dog" },
+    { "action": "click", "selector": "[data-add]", "caption": "Second todo added, two items left.", "label": "Add button" },
+    { "action": "click", "selector": "[data-todo] [data-toggle]", "caption": "First todo marked complete.", "label": "Toggle complete" },
+    { "action": "click", "selector": "[data-filter=\"active\"]", "caption": "Filtered to active todos only.", "label": "Active filter" },
+    { "action": "click", "selector": "[data-filter=\"all\"]" },
+    { "action": "click", "selector": "[data-clear-completed]", "caption": "Cleared completed todos, one item remains.", "label": "Clear completed" }
+  ]
+}
