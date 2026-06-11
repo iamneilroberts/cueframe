@@ -6,8 +6,9 @@ description: >
   an app from a plain-English workflow, e.g. "record adding a todo and completing it",
   "capture the signup flow from the landing page to the dashboard", "demo searching and
   checking out". Explores the app to learn its selectors, turns the instruction into a
-  capture scenario, drives the app, and writes a schema-valid spec.json with rich per-frame
-  caption / axDigest / boxes. Do NOT use for editing callouts on an existing reel (that is
+  capture scenario, drives the app, and writes a schema-valid spec.json whose frames each
+  carry a caption, an axDigest, and measured boxes. Do NOT use for editing callouts on an
+  existing reel (that is
   the cueframe-callouts skill) or for building the player/exporters.
 ---
 
@@ -23,7 +24,7 @@ under the hood). You author a **capture scenario** (an ordered list of steps) an
 engine execute it and measure every frame. You do not hand-place screenshots or hand-write
 pixel rects, the engine measures them at capture time.
 
-## The capture-quality contract is the whole game (GOAL.md §3.1)
+## Capture quality is the contract (GOAL.md §3.1)
 
 `caption`, `axDigest`, and `boxes` on each golden frame are load-bearing: the callout skill's
 semantic frame resolution and auto-anchoring stand entirely on them. If they are thin, the
@@ -116,8 +117,9 @@ Always validate before declaring success:
 npx cueframe validate <dir>/spec.json
 ```
 
-Confirm **zero schema errors and zero capture defects**, and that there are at least a handful
-of golden frames, each with a real caption, a non-empty axDigest, and at least one real box.
+Confirm **zero schema errors and zero capture defects**, and that there are enough golden
+frames to cover the workflow's meaningful states, each with a real caption, a non-empty
+axDigest, and at least one real box.
 If validation reports defects, your steps landed on empty/ambiguous states, adjust the
 scenario (add waits, caption different states, reference the result elements) and re-capture.
 

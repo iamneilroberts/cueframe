@@ -7,9 +7,9 @@ talking: "call out the results around the middle," "make that pause longer," "dr
 one." Cueframe resolves the exact frame, the exact anchor, and the copy for you. When the reel
 looks right, it exports as a self-contained web page, an MP4, or a GIF.
 
-The point is to replace screen-recording-and-editing with describing the demo and narrating
-the callouts. There are no timelines to fight, nothing to re-record over a typo, and no labels
-to hand-place.
+Cueframe replaces screen recording and editing with describing the demo and narrating the
+callouts. There are no timelines to fight, nothing to re-record over a typo, and no labels to
+hand-place.
 
 This is the general, open-source version of the engine. Clone it and demo your own app.
 
@@ -155,11 +155,11 @@ house voice. When `meta.voice` is absent, the plain default applies.
 
 ## Why Playwright for capture?
 
-The capture engine uses [Playwright](https://playwright.dev/) (Chromium). It fits the engine
-for three reasons. It is scriptable without Claude Code, so `npx cueframe capture` runs in CI
-and from a plain shell. It is deterministic and headless. And it exposes the two APIs the
-capture-quality contract depends on: `boundingBox()` for pixel-accurate `boxes`, and DOM and
-accessibility introspection for the `axDigest`. The conversational Showrunner skill can also
+The capture engine uses [Playwright](https://playwright.dev/) (Chromium). It is scriptable
+without Claude Code, so `npx cueframe capture` runs in CI and from a plain shell. It is
+deterministic and headless. And it exposes the two APIs the capture-quality contract depends
+on: `boundingBox()` for pixel-accurate `boxes`, and DOM and accessibility introspection for
+the `axDigest`. The conversational Showrunner skill can also
 use the chrome-devtools MCP for interactive discovery, but the engine itself stays on
 Playwright so any capture reproduces outside a Claude Code session.
 

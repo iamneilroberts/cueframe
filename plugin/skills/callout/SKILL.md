@@ -13,9 +13,9 @@ description: >
 
 # Cueframe callout authoring
 
-You edit `callouts` in a Cueframe `spec.json` from plain-English instructions. The whole
-point of this skill: the user should never count frames or write JSON. They describe *what*
-to point at and *roughly where* in the demo; you resolve the exact frame, the exact anchor,
+You edit `callouts` in a Cueframe `spec.json` from plain-English instructions. The user
+should never count frames or write JSON. They describe *what* to point at and *roughly where*
+in the demo; you resolve the exact frame, the exact anchor,
 and the copy, then write the edit.
 
 The mechanism is the `src/callout` edit library (`resolve.ts` + `edit.ts`). You do not
