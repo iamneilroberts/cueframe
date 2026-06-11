@@ -32,3 +32,6 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Acceptance gate (Definition of Done; regenerates examples/golden)
+        run: npm run acceptance

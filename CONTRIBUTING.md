@@ -22,7 +22,7 @@ npm run acceptance    # end-to-end §6 gate; regenerates examples/golden/
 ```
 
 All three must be green before a change lands. CI (`.github/workflows/ci.yml`) runs typecheck,
-build, and tests on every push.
+build, tests, and the acceptance gate on every push.
 
 The live-site showcase examples are regenerated separately (they need network access and are
 not part of CI):

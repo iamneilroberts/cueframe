@@ -91,8 +91,10 @@ npm run acceptance
 
 `npm run acceptance` writes the full golden example to `examples/golden/` (`spec.json`,
 `frames/`, `demo.html`, `demo.mp4`, `demo.gif`) and prints a PASS or FAIL line for each check
-in [the Definition of Done](GOAL.md#6-definition-of-done-the-stop-gate). It is deterministic
-and edits no JSON by hand. The callouts are authored from plain-English instructions through
+in [the Definition of Done](GOAL.md#6-definition-of-done-the-stop-gate). It edits no JSON by hand and is deterministic per machine: consecutive runs produce identical
+artifacts. Note it regenerates the committed `examples/golden/` files in place, so `git status`
+may show them modified afterward if your platform renders fonts differently than the committed
+snapshot. The callouts are authored from plain-English instructions through
 the same `src/callout` engine the conversational skill drives.
 
 Open `examples/golden/demo.html` in any browser to watch the reel.

@@ -44,6 +44,11 @@ export interface CaptureOptions {
   app?: string;
   /** Default true. */
   headless?: boolean;
+  /**
+   * Override meta.createdAt (ISO-8601). Lets deterministic generators (the acceptance
+   * gate) produce byte-identical specs across runs. Default: now.
+   */
+  createdAt?: string;
 }
 
 export interface CaptureResult {
@@ -185,6 +190,22 @@ export async function capture(opts: CaptureOptions): Promise<CaptureResult> {
     browser = await chromium.launch({ headless });
     const page = await browser.newPage({ viewport: { width: viewport.w, height: viewport.h } });
 
+    // Deterministic pixels: hide the text caret and freeze CSS animations/transitions
+    // so repeated captures of the same workflow produce identical screenshots.
+    await page.addInitScript(() => {
+      const inject = (): void => {
+        const style = document.createElement("style");
+        style.textContent =
+          "*{caret-color:transparent!important;animation:none!important;transition:none!important}";
+        document.documentElement.appendChild(style);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", inject);
+      } else {
+        inject();
+      }
+    });
+
     // Initial navigation (also lets us read an embedded scenario).
     await page.goto(opts.url, { waitUntil: "load" });
 
@@ -240,7 +261,7 @@ export async function capture(opts: CaptureOptions): Promise<CaptureResult> {
       meta: {
         title: opts.title ?? scenario.name ?? "Cueframe demo",
         app: opts.app ?? opts.url,
-        createdAt: new Date().toISOString(),
+        createdAt: opts.createdAt ?? new Date().toISOString(),
         viewport,
       },
       frames,

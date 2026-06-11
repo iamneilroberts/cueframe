@@ -10,8 +10,10 @@ workflow, author callouts from plain-English instructions, then export `demo.htm
 | `saucedemo` | `npm run example:saucedemo` | live saucedemo.com | `saucedemo/` | A real third-party checkout flow. Callouts auto-anchor to the site's own `#id` / `data-test` elements. |
 | `toolshop` | `npm run example:toolshop` | live practicesoftwaretesting.com | `toolshop/` | A browse-to-cart flow on an Angular store, anchored to the add-to-cart button, the checkout button, and the cart total. |
 
-**Bundled vs live.** `todo-app` runs against the app bundled in this repo, so it reproduces
-byte-for-byte and runs in CI. `saucedemo` and `toolshop` point at live third-party sites: the
+**Bundled vs live.** `todo-app` runs against the app bundled in this repo: the acceptance
+gate runs in CI, and consecutive `npm run acceptance` runs on one machine produce identical
+artifacts. (Across machines, font rendering can shift pixels, so a regenerated
+`examples/golden/` may differ from the committed snapshot.) `saucedemo` and `toolshop` point at live third-party sites: the
 committed artifacts are a snapshot, and re-running them needs network access and may need the
 example's `cueframe.scenario.json` updated if the site changes its markup.
 

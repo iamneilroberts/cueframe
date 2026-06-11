@@ -69,6 +69,7 @@ async function main(): Promise<number> {
       title: "Cueframe todo demo",
       app: "Cueframe sample todo app",
       headless: true,
+      createdAt: "2026-01-01T00:00:00.000Z",
     });
     spec = result.spec;
     const golden = goldenFrames(spec);
