@@ -17,7 +17,7 @@ import { capture, parseScenario } from "./capture/index.js";
 import type { Scenario } from "./capture/index.js";
 import { exportHtml, exportMp4, exportGif } from "./export/index.js";
 import { servePlayer } from "./server.js";
-import { loadSpec, readSpecJson } from "./io.js";
+import { loadSpec, readSpecJson, resolveSpecOut } from "./io.js";
 import { validateSpec, formatValidation } from "./spec/index.js";
 
 interface Parsed {
@@ -69,9 +69,7 @@ async function cmdCapture(p: Parsed): Promise<number> {
     return 2;
   }
   const out = typeof p.flags.out === "string" ? p.flags.out : "spec.json";
-  const outAbs = resolve(out);
-  const outDir = dirname(outAbs);
-  const specFile = basename(outAbs);
+  const { outDir, specFile } = await resolveSpecOut(out);
   let scenario: Scenario | undefined;
   if (typeof p.flags.scenario === "string") {
     let raw: string;
