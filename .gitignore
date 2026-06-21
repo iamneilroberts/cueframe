@@ -14,3 +14,6 @@ coverage/
 
 # Session handoff scratch
 docs/summaries/
+
+# Git worktrees (isolated agent workspaces)
+.worktrees/
